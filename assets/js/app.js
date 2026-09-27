@@ -488,35 +488,30 @@
           </p>
         </header>
 
-        <!-- Bannière Transition Nouveau Projet (Spécification clé du projet) -->
-        ${step.newProjectBanner ? `
-          <div class="mb-8 rounded-2xl bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-orange-500/5 border-2 border-orange-500/50 p-5 sm:p-6 shadow-md glow-7robot">
+        <!-- Objectif Flash / Encart visuel très clair (Spécification clé du projet) -->
+        ${step.quickGoal ? `
+          <div class="mb-8 rounded-2xl bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-orange-500/5 border-2 border-orange-500/40 p-5 sm:p-6 shadow-sm glow-7robot">
             <div class="flex items-start space-x-3.5">
               <div class="shrink-0 p-2.5 bg-[#ff7d00] text-white rounded-xl shadow-md">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div class="flex-1 min-w-0">
-                <div class="flex flex-wrap items-center gap-2 mb-1.5">
-                  <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase bg-[#ff7d00] text-white shadow-sm">
-                    ${step.newProjectBanner.badge || 'Action requise'}
-                  </span>
-                  <span class="text-xs font-semibold text-orange-600 dark:text-orange-400">
-                    ${step.newProjectBanner.action}
-                  </span>
-                </div>
-                <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mb-2.5">
-                  ${step.newProjectBanner.title}
-                </h3>
-                <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-200">
-                  ${step.newProjectBanner.instructions.map(item => `
-                    <li class="flex items-start space-x-2.5">
-                      <span class="text-[#ff7d00] font-bold shrink-0 mt-0.5">➔</span>
-                      <div class="leading-relaxed">${item}</div>
-                    </li>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase bg-[#ff7d00] text-white shadow-sm">
+                  En bref : ce qu'on va faire
+                </span>
+                <p class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-2 mb-3">
+                  ${step.quickGoal.concept}
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-200">
+                  ${step.quickGoal.actions.map((act, idx) => `
+                    <div class="flex items-start space-x-2 bg-white/80 dark:bg-slate-900/80 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                      <span class="w-5 h-5 rounded-full bg-[#ff7d00] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">${idx + 1}</span>
+                      <span class="leading-snug">${act}</span>
+                    </div>
                   `).join('')}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -731,7 +726,7 @@
     const activeImageSrc = previewUrl || step.imageSrc || (ph && ph.imageSrc);
 
     return `
-      <div class="relative rounded-2xl border border-slate-300 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-900/80 p-4 sm:p-5 overflow-hidden transition-all duration-200 hover:border-orange-500/50 group bg-cad-grid shadow-sm">
+      <div class="cad-screenshot-placeholder relative rounded-2xl border border-slate-300 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-900/80 p-4 sm:p-5 overflow-hidden transition-all duration-200 hover:border-orange-500/50 group bg-cad-grid shadow-sm">
         <!-- Viseurs techniques CAD aux 4 coins -->
         <span class="absolute top-2 left-2 text-slate-400/60 dark:text-slate-600 font-mono text-[10px] select-none">+</span>
         <span class="absolute top-2 right-2 text-slate-400/60 dark:text-slate-600 font-mono text-[10px] select-none">+</span>

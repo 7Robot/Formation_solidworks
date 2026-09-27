@@ -135,3 +135,22 @@ code, kbd, pre, .font-mono {
     height: auto !important;
   }
 }
+
+/* Encart visuel et placeholders de captures d'écran SolidWorks */
+.cad-screenshot-placeholder {
+  position: relative;
+  border-radius: 1rem;
+  border: 2px dashed rgba(255, 125, 0, 0.35);
+  background: rgba(248, 250, 252, 0.85);
+  transition: all 0.25s ease;
+}
+
+.dark .cad-screenshot-placeholder {
+  border-color: rgba(255, 125, 0, 0.3);
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.cad-screenshot-placeholder:hover {
+  border-color: rgba(255, 125, 0, 0.7);
+  box-shadow: 0 4px 20px -2px rgba(255, 125, 0, 0.15);
+}
