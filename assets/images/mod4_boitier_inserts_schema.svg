@@ -1,0 +1,281 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#060911"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ca8a04"/>
+      <stop offset="50%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+    <linearGradient id="servoGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <pattern id="knurl" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M 0 0 L 6 6 M 6 0 L 0 6" stroke="#854d0e" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Fond général sombre CAD -->
+  <rect width="960" height="590" fill="url(#bgGrad)"/>
+  
+  <!-- Lignes de grille subtiles Blueprint -->
+  <line x1="30" y1="75" x2="930" y2="75" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- BANDEAU TITRE SUPÉRIEUR -->
+  <g transform="translate(30, 25)">
+    <text x="0" y="20" fill="#f8fafc" font-family="Inter, -apple-system, sans-serif" font-size="17" font-weight="800" letter-spacing="0.5">CONCEPTION MÉCANIQUE : BOÎTIER À GLISSIÈRE FEETECH &amp; INSERTS M3</text>
+    <text x="0" y="40" fill="#ff7d00" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">NORME 7ROBOT : GLISSIÈRE SANS VIS DANS LE SERVO • INSERTS LAITON Ø4.6mm • COUVERCLE FRAISÉ Ø3.2mm</text>
+  </g>
+
+  <!-- =========================================================================
+       CARTE GAUCHE : COUPE TECHNIQUE DE LA LIAISON VISSÉE
+       ========================================================================= -->
+  <g transform="translate(30, 85)">
+    <!-- Cadre extérieur -->
+    <rect width="435" height="485" rx="14" fill="#0d1527" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect width="435" height="38" rx="12" fill="#0284c7" fill-opacity="0.2"/>
+    <line x1="0" y1="38" x2="435" y2="38" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+    
+    <text x="18" y="24" fill="#bae6fd" font-family="Inter, sans-serif" font-size="13" font-weight="700">1. Coupe normalisée : Vis FHC M3 &amp; Insert laiton</text>
+
+    <!-- ZONE DE COUPE DESSIN TECHNIQUE -->
+    <g transform="translate(20, 50)">
+      
+      <!-- 1. Couvercle supérieur (épaisseur 3.5 mm) -->
+      <rect x="30" y="20" width="230" height="50" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+      <text x="38" y="40" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11" font-weight="700">Couvercle (ép. 3.5 mm)</text>
+
+      <!-- Hachures couvercle -->
+      <line x1="45" y1="20" x2="70" y2="70" stroke="#334155" stroke-width="1.5"/>
+      <line x1="65" y1="20" x2="90" y2="70" stroke="#334155" stroke-width="1.5"/>
+      <line x1="85" y1="20" x2="110" y2="70" stroke="#334155" stroke-width="1.5"/>
+
+      <!-- Perçage conique pour tête fraisée 45° et trou Ø3.2mm -->
+      <!-- Centre du trou = x: 195 -->
+      <!-- Chanfrein : x=163 à x=227 (largeur 64px = 6.4mm) descendant à 45° sur 25px (1.75mm) -->
+      <!-- Trou lisse Ø3.2mm : largeur 32px (x=179 à x=211) descendant de y=45 à y=70 -->
+      <polygon points="163,20 227,20 211,45 211,70 179,70 179,45" fill="#090d16" stroke="#f59e0b" stroke-width="1.5"/>
+      
+      <!-- Tête de vis FHC M3 à tête fraisée (affleurante) -->
+      <polygon points="166,21 224,21 208,44 182,44" fill="url(#metalGrad)" stroke="#cbd5e1" stroke-width="1"/>
+      <!-- Empreinte 6 pans creux clé Allen 2mm -->
+      <polygon points="190,21 200,21 204,26 200,31 190,31 186,26" fill="#090d16"/>
+
+      <!-- 2. Boîtier inférieur (Logement d'insert laiton) -->
+      <rect x="30" y="75" width="230" height="180" rx="3" fill="#131d31" stroke="#ff7d00" stroke-width="2"/>
+      <text x="38" y="98" fill="#ff7d00" font-family="Inter, sans-serif" font-size="11" font-weight="700">Boîtier Feetech (FDM)</text>
+
+      <!-- Hachures boîtier -->
+      <line x1="45" y1="75" x2="105" y2="195" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="65" y1="75" x2="125" y2="195" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- Puits d'insert borgne : largeur 46px (Ø 4.60 mm), profondeur 100px (5.5 mm) -->
+      <!-- x de 172 à 218, y de 75 à 175 -->
+      <rect x="172" y="75" width="46" height="100" fill="#090d16" stroke="#22c55e" stroke-width="2"/>
+
+      <!-- Insert laiton moleté doré (hauteur 75px, largeur 42px) -->
+      <rect x="174" y="80" width="42" height="75" rx="2" fill="url(#goldGrad)" stroke="#a16207" stroke-width="1.5"/>
+      <!-- Moletage en losanges -->
+      <rect x="174" y="80" width="42" height="75" fill="url(#knurl)" fill-opacity="0.7"/>
+
+      <!-- Filetage intérieur M3 (axe central) -->
+      <rect x="183" y="80" width="24" height="75" fill="#713f12" fill-opacity="0.4"/>
+      <line x1="183" y1="80" x2="183" y2="155" stroke="#fef08a" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <line x1="207" y1="80" x2="207" y2="155" stroke="#fef08a" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+      <!-- Tige filetée de la vis M3 descendant dans l'insert -->
+      <rect x="185" y="44" width="20" height="95" fill="url(#metalGrad)" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="185" y1="60" x2="205" y2="60" stroke="#475569" stroke-width="1"/>
+      <line x1="185" y1="75" x2="205" y2="75" stroke="#475569" stroke-width="1"/>
+      <line x1="185" y1="90" x2="205" y2="90" stroke="#475569" stroke-width="1"/>
+      <line x1="185" y1="105" x2="205" y2="105" stroke="#475569" stroke-width="1"/>
+      <line x1="185" y1="120" x2="205" y2="120" stroke="#475569" stroke-width="1"/>
+
+      <!-- Réserve de fond de trou (Dégagement ≥ 5mm) -->
+      <rect x="174" y="155" width="42" height="20" fill="#090d16" fill-opacity="0.8"/>
+      <text x="195" y="169" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">Jeu fond</text>
+
+      <!-- ================= COTES & ANNOTATIONS ================= -->
+
+      <!-- Cote 1 : Chanfrein 45° x 1.75 mm -->
+      <path d="M 226 21 L 280 21" stroke="#f59e0b" stroke-width="1.5"/>
+      <circle cx="226" cy="21" r="2.5" fill="#f59e0b"/>
+      <text x="285" y="19" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Chanfrein 45° x 1.75 mm</text>
+      <text x="285" y="32" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Vis FHC M3 affleurante</text>
+
+      <!-- Cote 2 : Perçage Ø 3.20 mm -->
+      <path d="M 211 58 L 280 58" stroke="#38bdf8" stroke-width="1.5"/>
+      <circle cx="211" cy="58" r="2.5" fill="#38bdf8"/>
+      <text x="285" y="56" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Perçage Ø 3.20 mm</text>
+      <text x="285" y="69" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Jeu doux de passage vis M3</text>
+
+      <!-- Cote 3 : Puits Ø 4.60 mm -->
+      <line x1="172" y1="190" x2="218" y2="190" stroke="#22c55e" stroke-width="1.5"/>
+      <polygon points="172,190 178,187 178,193" fill="#22c55e"/>
+      <polygon points="218,190 212,187 212,193" fill="#22c55e"/>
+      <text x="195" y="206" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">Trou Ø 4.60 mm</text>
+      <text x="195" y="219" fill="#86efac" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Insert laiton M3</text>
+
+      <!-- Cote 4 : Profondeur >= 5.0 mm -->
+      <line x1="235" y1="75" x2="235" y2="175" stroke="#22c55e" stroke-width="1.5"/>
+      <polygon points="235,75 232,82 238,82" fill="#22c55e"/>
+      <polygon points="235,175 232,168 238,168" fill="#22c55e"/>
+      <path d="M 235 125 L 280 125" stroke="#22c55e" stroke-width="1.5"/>
+      <text x="285" y="123" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Prof. ≥ 5.0 mm</text>
+      <text x="285" y="136" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Évite la butée de vis</text>
+
+    </g>
+
+    <!-- CARTOUCHE EXPLICATIF EN BAS DE LA CARTE 1 -->
+    <g transform="translate(18, 335)">
+      <rect width="399" height="135" rx="8" fill="#090e1a" stroke="#1e293b" stroke-width="1"/>
+      <text x="14" y="22" fill="#f8fafc" font-family="Inter, sans-serif" font-size="11" font-weight="700">💡 Les 3 règles d'ingénierie 7Robot :</text>
+      
+      <circle cx="20" cy="42" r="3" fill="#ff7d00"/>
+      <text x="30" y="46" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11"><strong>Vis M3 obligatoire :</strong> Ne passe pas dans le servo ➔ glissière.</text>
+
+      <circle cx="20" cy="72" r="3" fill="#22c55e"/>
+      <text x="30" y="76" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11"><strong>Trou Ø 4.6 mm :</strong> L'insert fond dans le PLA au fer à <strong>220°C</strong>.</text>
+
+      <circle cx="20" cy="102" r="3" fill="#f59e0b"/>
+      <text x="30" y="106" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11"><strong>Chanfrein 45° x 1.75 mm :</strong> Tête fraisée FHC 100% affleurante.</text>
+    </g>
+  </g>
+
+
+  <!-- =========================================================================
+       CARTE DROITE : PRINCIPE DE LA GLISSIÈRE & VUE ÉCLATÉE DU MONTAGE
+       ========================================================================= -->
+  <g transform="translate(495, 85)">
+    <!-- Cadre extérieur -->
+    <rect width="435" height="485" rx="14" fill="#0d1527" stroke="#ff7d00" stroke-width="1.5"/>
+    <rect width="435" height="38" rx="12" fill="#c2410c" fill-opacity="0.2"/>
+    <line x1="0" y1="38" x2="435" y2="38" stroke="#ff7d00" stroke-width="1" stroke-opacity="0.4"/>
+
+    <text x="18" y="24" fill="#fed7aa" font-family="Inter, sans-serif" font-size="13" font-weight="700">2. Principe de la glissière Feetech 7Robot</text>
+
+    <!-- SCHEMA ÉCLATÉ PROPRE ET NON-BUGGÉ -->
+    <g transform="translate(20, 50)">
+
+      <!-- NIVEAU 1 : LE COUVERCLE FRAISÉ (Haut) -->
+      <g transform="translate(0, 0)">
+        <rect x="70" y="5" width="255" height="26" rx="4" fill="#334155" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="80" y="22" fill="#f8fafc" font-family="Inter, sans-serif" font-size="11" font-weight="700">Couvercle (ép. 3.5 mm)</text>
+        
+        <!-- Alésage central pour palonnier -->
+        <rect x="180" y="5" width="35" height="26" fill="#090d16" stroke="#38bdf8" stroke-width="1.5"/>
+        <text x="197" y="22" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">Ø16</text>
+
+        <!-- 4 trous de vis fraisés aux extrémités -->
+        <circle cx="82" cy="18" r="4.5" fill="#f59e0b" stroke="#f8fafc" stroke-width="1"/>
+        <circle cx="313" cy="18" r="4.5" fill="#f59e0b" stroke="#f8fafc" stroke-width="1"/>
+        
+        <text x="335" y="22" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">Vis FHC M3 ➔</text>
+      </g>
+
+      <!-- FLÈCHES DE BRIDAGE (Descente du couvercle) -->
+      <g transform="translate(0, 36)">
+        <line x1="120" y1="0" x2="120" y2="18" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3,2"/>
+        <polygon points="120,22 116,14 124,14" fill="#38bdf8"/>
+        
+        <text x="197" y="16" fill="#38bdf8" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle">⬇ Bride le servomoteur en butée supérieure ⬇</text>
+
+        <line x1="275" y1="0" x2="275" y2="18" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3,2"/>
+        <polygon points="275,22 271,14 279,14" fill="#38bdf8"/>
+      </g>
+
+      <!-- NIVEAU 2 : LE SERVOMOTEUR FEETECH AVEC OREILLES LATÉRALES (Milieu) -->
+      <g transform="translate(0, 65)">
+        <!-- Palonnier métallique supérieur -->
+        <rect x="175" y="0" width="45" height="12" rx="3" fill="url(#metalGrad)" stroke="#f8fafc" stroke-width="1.2"/>
+        <circle cx="197" cy="6" r="3" fill="#090d16"/>
+
+        <!-- Corps principal Feetech -->
+        <rect x="145" y="12" width="105" height="75" rx="5" fill="url(#servoGrad)" stroke="#38bdf8" stroke-width="1.8"/>
+
+        <!-- Oreille latérale GAUCHE (glissière) -->
+        <rect x="100" y="32" width="45" height="16" rx="2" fill="#334155" stroke="#38bdf8" stroke-width="1.5"/>
+        <rect x="108" y="36" width="14" height="8" rx="2" fill="#090d16"/>
+
+        <!-- Oreille latérale DROITE (glissière) -->
+        <rect x="250" y="32" width="45" height="16" rx="2" fill="#334155" stroke="#38bdf8" stroke-width="1.5"/>
+        <rect x="273" y="36" width="14" height="8" rx="2" fill="#090d16"/>
+
+        <!-- ÉTIQUETTE FEETECH NETTE ET BIEN POSITIONNÉE (AUCUN DÉBORDEMENT) -->
+        <rect x="153" y="55" width="89" height="24" rx="4" fill="#0f172a" stroke="#64748b" stroke-width="1"/>
+        <text x="197" y="71" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800" text-anchor="middle">FEETECH STS</text>
+
+        <!-- Annotation oreille sans vis -->
+        <path d="M 98 40 L 40 40" stroke="#38bdf8" stroke-width="1.2"/>
+        <circle cx="98" cy="40" r="2.5" fill="#38bdf8"/>
+        <text x="35" y="37" fill="#38bdf8" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="end">Oreille servo</text>
+        <text x="35" y="49" fill="#94a3b8" font-family="Inter, sans-serif" font-size="9" text-anchor="end">(sans vis)</text>
+      </g>
+
+      <!-- FLÈCHE DE COULISSEMENT (Verte, grande et dégagée) -->
+      <g transform="translate(0, 160)">
+        <line x1="197" y1="0" x2="197" y2="30" stroke="#22c55e" stroke-width="3"/>
+        <polygon points="197,36 190,24 204,24" fill="#22c55e"/>
+
+        <rect x="215" y="8" width="170" height="20" rx="4" fill="#052e16" stroke="#22c55e" stroke-width="1"/>
+        <text x="300" y="22" fill="#22c55e" font-family="Inter, sans-serif" font-size="10" font-weight="800" text-anchor="middle">COULISSEMENT VERTICAL</text>
+      </g>
+
+      <!-- NIVEAU 3 : LE BOÎTIER CARRÉ AVEC RAINURES & 4 INSERTS (Bas) -->
+      <g transform="translate(0, 205)">
+        <!-- Corps extérieur carré du boîtier -->
+        <rect x="70" y="0" width="255" height="110" rx="8" fill="#131d31" stroke="#ff7d00" stroke-width="2"/>
+        <text x="78" y="16" fill="#ff7d00" font-family="Inter, sans-serif" font-size="10" font-weight="700">Boîtier 44 x 44 mm</text>
+
+        <!-- Cavité intérieure recevant le corps du Feetech -->
+        <rect x="141" y="10" width="113" height="90" rx="3" fill="#090d16" stroke="#475569" stroke-width="1.5"/>
+
+        <!-- Rainure de glissière latérale GAUCHE pour oreille -->
+        <rect x="98" y="20" width="43" height="35" rx="2" fill="#090d16" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- Rainure de glissière latérale DROITE pour oreille -->
+        <rect x="254" y="20" width="43" height="35" rx="2" fill="#090d16" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+        <text x="197" y="55" fill="#64748b" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Cavité +0.4mm (Jeu FDM)</text>
+        <text x="197" y="70" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">Rainures de glissière</text>
+
+        <!-- 4 Trous pour inserts laiton M3 (aux 4 coins) -->
+        <!-- Coin haut gauche -->
+        <circle cx="82" cy="18" r="7" fill="url(#goldGrad)" stroke="#f8fafc" stroke-width="1.5"/>
+        <circle cx="82" cy="18" r="2.5" fill="#713f12"/>
+
+        <!-- Coin haut droite -->
+        <circle cx="313" cy="18" r="7" fill="url(#goldGrad)" stroke="#f8fafc" stroke-width="1.5"/>
+        <circle cx="313" cy="18" r="2.5" fill="#713f12"/>
+
+        <!-- Coin bas gauche -->
+        <circle cx="82" cy="92" r="7" fill="url(#goldGrad)" stroke="#f8fafc" stroke-width="1.5"/>
+        <circle cx="82" cy="92" r="2.5" fill="#713f12"/>
+
+        <!-- Coin bas droite -->
+        <circle cx="313" cy="92" r="7" fill="url(#goldGrad)" stroke="#f8fafc" stroke-width="1.5"/>
+        <circle cx="313" cy="92" r="2.5" fill="#713f12"/>
+
+        <!-- Annotation Inserts M3 propre (sans chevauchement) -->
+        <path d="M 320 92 L 350 92" stroke="#eab308" stroke-width="1.2"/>
+        <text x="355" y="88" fill="#eab308" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800">4x Inserts M3</text>
+        <text x="355" y="100" fill="#fde047" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">Ø 4.6 mm</text>
+      </g>
+    </g>
+
+    <!-- CARTOUCHE DE VALIDATION EN BAS DE LA CARTE 2 -->
+    <g transform="translate(18, 410)">
+      <rect width="399" height="60" rx="8" fill="#052e16" stroke="#22c55e" stroke-width="1.5"/>
+      <text x="16" y="24" fill="#4ade80" font-family="Inter, sans-serif" font-size="12" font-weight="800">✔ Résultat : Assemblage rigide, sans contrainte et démontable</text>
+      <text x="16" y="44" fill="#bbf7d0" font-family="Inter, sans-serif" font-size="11">Remplacement express du servomoteur en 30 secondes en tournoi Eurobot !</text>
+    </g>
+  </g>
+</svg>

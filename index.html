@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7Robot - Formation CAO SolidWorks | Tutoriel Interactif</title>
+  <meta name="description" content="Plateforme d'apprentissage interactive et pas à pas de la CAO sur SolidWorks pour l'association de robotique 7Robot.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo_7robot.svg">
+
+  <!-- Tailwind CSS via CDN (Idéal pour GitHub Pages, aucun build requis) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            '7robot': {
+              DEFAULT: '#ff7d00',
+              hover: '#e06e00',
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#ff7d00',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Feuille de style personnalisée -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-100 dark:bg-[#0b0f17] text-slate-800 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-[#ff7d00] selection:text-white">
+
+  <!-- =========================================================================
+       CANVAS CONFETTI (Animations de célébration sans dépendance)
+       ========================================================================= -->
+  <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <!-- =========================================================================
+       BARRE DE NAVIGATION HAUTE (MOBILE & COMMANDES RAPIDES)
+       ========================================================================= -->
+  <header class="lg:hidden sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between no-print">
+    <div class="flex items-center space-x-3">
+      <button 
+        id="mobile-menu-btn" 
+        type="button" 
+        class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        aria-label="Ouvrir le menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <div class="flex items-center space-x-2">
+        <img src="assets/images/logo_7robot.svg" alt="Logo 7Robot" class="w-8 h-8 object-contain">
+        <div>
+          <span class="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white">7Robot</span>
+          <span class="text-[10px] font-mono block text-[#ff7d00] uppercase font-bold leading-none">CAO SolidWorks</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-2">
+      <span id="mobile-progress-badge" class="px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-orange-100 text-[#ff7d00] dark:bg-orange-500/10 dark:text-orange-400">
+        0%
+      </span>
+      <button 
+        id="mobile-theme-btn" 
+        type="button" 
+        onclick="document.getElementById('theme-toggle-btn').click()"
+        class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        aria-label="Basculer le thème"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       LAYOUT GLOBAL (Sidebar gauche fixe + Zone de contenu droite)
+       ========================================================================= -->
+  <div class="flex-1 flex overflow-hidden relative">
+
+    <!-- BACKDROP MOBILE (Ferme la sidebar au tap) -->
+    <div 
+      id="sidebar-backdrop" 
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 lg:hidden hidden transition-opacity"
+    ></div>
+
+    <!-- =======================================================================
+         SIDEBAR GAUCHE (Progression globale, Sommaire des modules, Recherche)
+         ======================================================================= -->
+    <aside 
+      id="main-sidebar"
+      class="fixed lg:static top-0 bottom-0 left-0 z-40 w-80 sm:w-[340px] bg-white dark:bg-[#0f172a] border-r border-slate-200 dark:border-slate-800/80 flex flex-col transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0 no-print"
+    >
+      <!-- En-tête de la sidebar (Logo + Titre de formation) -->
+      <div class="p-5 border-b border-slate-200 dark:border-slate-800 shrink-0">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-500/10 dark:bg-orange-500/20 flex items-center justify-center p-1.5 border border-orange-500/20 shadow-sm">
+              <img src="assets/images/logo_7robot.svg" alt="7Robot Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <div class="flex items-center space-x-1.5">
+                <h1 class="text-base font-extrabold tracking-tight text-slate-900 dark:text-white">7Robot Academy</h1>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Formation CAO SolidWorks</p>
+            </div>
+          </div>
+
+          <!-- Bouton thème bureau -->
+          <button 
+            id="theme-toggle-btn"
+            type="button" 
+            class="p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            title="Basculer thème sombre / clair"
+          >
+            <!-- L'icône est injectée dynamiquement par app.js -->
+          </button>
+        </div>
+
+        <!-- CARTE DE PROGRESSION GLOBALE (Spécification clé du projet) -->
+        <div class="bg-slate-50 dark:bg-slate-900/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-800/90 shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400 flex items-center">
+              <svg class="w-3.5 h-3.5 mr-1 text-[#ff7d00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Progression globale
+            </span>
+            <span id="global-progress-text" class="text-xs font-bold font-mono text-[#ff7d00]">0%</span>
+          </div>
+
+          <!-- Jauge animée -->
+          <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
+            <div 
+              id="global-progress-fill" 
+              class="h-full bg-gradient-to-r from-amber-500 to-[#ff7d00] rounded-full transition-all duration-500 ease-out shadow-sm"
+              style="width: 0%"
+            ></div>
+          </div>
+
+          <div class="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            <span id="global-progress-count">0 / 0 étapes terminées</span>
+            <button 
+              id="reset-progress-btn" 
+              type="button" 
+              class="hover:text-red-500 transition-colors flex items-center space-x-1"
+              title="Réinitialiser la progression"
+            >
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BARRE DE RECHERCHE / FILTRAGE RAPIDE -->
+        <div class="mt-3 relative">
+          <svg class="w-4 h-4 absolute left-3 top-3 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input 
+            type="text" 
+            id="sidebar-search-input" 
+            placeholder="Rechercher un outil, contrainte..." 
+            class="w-full pl-9 pr-8 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-[#ff7d00] focus:border-transparent text-slate-800 dark:text-slate-200 transition-all placeholder:text-slate-400"
+          >
+          <span class="absolute right-2.5 top-2.5 text-[10px] font-mono text-slate-400 border border-slate-300 dark:border-slate-700 px-1 rounded pointer-events-none">/</span>
+        </div>
+      </div>
+
+      <!-- LISTE DES MODULES & CHAPITRES (Injectée par app.js) -->
+      <nav id="sidebar-modules-list" class="flex-1 overflow-y-auto p-4 space-y-2">
+        <!-- Rendu dynamique par JavaScript -->
+      </nav>
+
+      <!-- Pied de page de la sidebar -->
+      <div class="p-3.5 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-900/40">
+        <div class="flex items-center space-x-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Prêt pour GitHub Pages</span>
+        </div>
+        <button 
+          id="print-cheatsheet-btn" 
+          type="button" 
+          class="hover:text-[#ff7d00] transition-colors flex items-center space-x-1"
+          title="Imprimer ou enregistrer en PDF"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          <span>PDF / Print</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         ZONE DE CONTENU PRINCIPALE (À DROITE)
+         ======================================================================= -->
+    <main 
+      id="main-content-scroll" 
+      class="flex-1 overflow-y-auto relative p-4 sm:p-8 lg:p-12 focus:outline-none"
+      tabindex="-1"
+    >
+      <!-- CONTENEUR DU CHAPITRE ACTIF (Généré par app.js) -->
+      <div id="step-content-area">
+        <!-- Rendu dynamique avec instructions, encarts grisés, alertes et astuces -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- =========================================================================
+       CONTENEUR TOAST NOTIFICATIONS (Bas droite)
+       ========================================================================= -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none no-print">
+    <!-- Messages toast injectés ici -->
+  </div>
+
+  <!-- =========================================================================
+       SCRIPTS (Données pédagogiques + Logique LMS)
+       ========================================================================= -->
+  <script src="assets/js/course-data.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="960" height="540" fill="#0b0f17"/>
+  <text x="60" y="60" fill="#f8fafc" font-family="Inter, sans-serif" font-size="18" font-weight="bold">RÉPÉTITION CIRCULAIRE (CIRCULAR PATTERN) - MOYEU 6 TROUS M3</text>
+  <text x="60" y="83" fill="#ff7d00" font-family="monospace" font-size="13">ESPACEMENT CONSTANT : 360° / 6 OCCURRENCES = PAS ANGULAIRE DE 60°</text>
+
+  <!-- Moyeu rond alu -->
+  <circle cx="480" cy="300" r="170" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+  <circle cx="480" cy="300" r="45" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+  <circle cx="480" cy="300" r="5" fill="#ef4444"/>
+
+  <!-- Cercle de distribution des trous (tireté) -->
+  <circle cx="480" cy="300" r="115" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="495" y="195" fill="#f59e0b" font-family="monospace" font-size="12">Diamètre primitif Ø80 mm</text>
+
+  <!-- 6 Trous répétés -->
+  <!-- Trou 1 (Maître) -->
+  <circle cx="480" cy="185" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+  <circle cx="480" cy="185" r="16" fill="#38bdf8" fill-opacity="0.3"/>
+  <text x="505" y="175" fill="#38bdf8" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Trou Maître (Source)</text>
+
+  <!-- Trous 2 à 6 (Occurrences) -->
+  <circle cx="580" cy="242" r="16" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+  <circle cx="580" cy="358" r="16" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+  <circle cx="480" cy="415" r="16" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+  <circle cx="380" cy="358" r="16" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+  <circle cx="380" cy="242" r="16" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+
+  <!-- Badge paramètres -->
+  <g transform="translate(700, 380)">
+    <rect width="200" height="90" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#22c55e" font-family="Inter, sans-serif" font-size="12" font-weight="bold">Paramètres :</text>
+    <text x="15" y="47" fill="#f8fafc" font-family="monospace" font-size="12">Occurrences : 6</text>
+    <text x="15" y="67" fill="#f8fafc" font-family="monospace" font-size="12">Espacement : 360°</text>
+  </g>
+</svg>

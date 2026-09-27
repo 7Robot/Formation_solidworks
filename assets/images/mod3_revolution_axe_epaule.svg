@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="960" height="540" fill="#0f172a"/>
+  <text x="60" y="60" fill="#f8fafc" font-family="Inter, sans-serif" font-size="18" font-weight="bold">FONCTION 3D : BOSSAGE AVEC RÉVOLUTION (AXE ÉPAULÉ &amp; POULIE)</text>
+  <text x="60" y="83" fill="#10b981" font-family="monospace" font-size="13">DESSINER UNIQUEMENT LE DEMI-PROFIL FERMÉ ADOSSÉ À L'AXE DE RÉVOLUTION (360°)</text>
+
+  <!-- Axe de révolution -->
+  <line x1="120" y1="350" x2="840" y2="350" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="14,6,3,6"/>
+  <text x="140" y="380" fill="#ef4444" font-family="monospace" font-size="13" font-weight="bold">Axe de Révolution central (CL)</text>
+
+  <!-- Demi-profil (Haut) -->
+  <polygon points="260,350 260,260 380,260 380,200 560,200 560,260 680,260 680,350" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="3"/>
+
+  <!-- Flèche de révolution 360 -->
+  <g transform="translate(680, 240)">
+    <path d="M 40 40 A 50 70 0 1 1 40 160" fill="none" stroke="#ff7d00" stroke-width="4"/>
+    <polygon points="40,40 55,42 45,55" fill="#ff7d00"/>
+    <text x="60" y="105" fill="#ff7d00" font-family="monospace" font-size="15" font-weight="bold">360°</text>
+  </g>
+
+  <!-- Volume 3D en filigrane (symétrique) -->
+  <polygon points="260,350 260,440 380,440 380,500 560,500 560,440 680,440 680,350" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- Cotation diamètre -->
+  <line x1="470" y1="200" x2="470" y2="500" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="480" y="180" fill="#f59e0b" font-family="monospace" font-size="14" font-weight="bold">Ø 40.00 mm</text>
+</svg>
