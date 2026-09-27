@@ -167,3 +167,30 @@ code, kbd, pre, .font-mono {
   box-shadow: 0 14px 35px -8px rgba(255, 125, 0, 0.35);
 }
 
+/* Placeholders d'illustrations demandées pour le tutoriel CAO */
+.image-placeholder {
+  position: relative;
+  border: 2px dashed #94a3b8;
+  background-color: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .image-placeholder {
+  border-color: #475569;
+  background-color: rgba(30, 41, 59, 0.7);
+  color: #e2e8f0;
+}
+
+.image-placeholder:hover {
+  border-color: #ff7d00;
+  background-color: #fffaf0;
+}
+
+.dark .image-placeholder:hover {
+  border-color: #ff7d00;
+  background-color: rgba(30, 41, 59, 0.95);
+}
+
+

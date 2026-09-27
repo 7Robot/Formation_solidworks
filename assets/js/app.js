@@ -637,14 +637,20 @@
                 ${inst.text}
               </p>
               ${inst.bullets && inst.bullets.length > 0 ? `
-                <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 pl-2">
-                  ${inst.bullets.map(b => `
-                    <li class="flex items-start space-x-2.5">
-                      <span class="text-[#ff7d00] shrink-0 font-bold mt-1 text-xs">▸</span>
-                      <div class="leading-relaxed">${b}</div>
-                    </li>
-                  `).join('')}
-                </ul>
+                <div class="space-y-3 mt-3">
+                  ${inst.bullets.map(b => {
+                    const trimmed = b.trim();
+                    if (trimmed.startsWith('<div class="image-placeholder') || trimmed.startsWith('<div class="my-6')) {
+                      return `<div class="w-full">${b}</div>`;
+                    }
+                    return `
+                      <div class="flex items-start space-x-2.5 text-sm text-slate-700 dark:text-slate-300">
+                        <span class="text-[#ff7d00] shrink-0 font-bold mt-1 text-xs">▸</span>
+                        <div class="leading-relaxed flex-1">${b}</div>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
               ` : ''}
             </section>
           `).join('')}
@@ -841,6 +847,19 @@
           </p>
         </header>
 
+        <!-- Règle d'or du module si définie -->
+        ${step.goldenRule ? `
+          <div class="mb-8 p-5 sm:p-6 rounded-2xl bg-amber-500/15 border-2 border-amber-500/50 text-amber-950 dark:text-amber-200 flex items-start space-x-3.5 shadow-sm">
+            <div class="shrink-0 p-2.5 bg-amber-500/20 rounded-xl text-amber-600 dark:text-amber-400 font-bold text-lg">
+              ⭐
+            </div>
+            <div>
+              <h4 class="font-extrabold text-sm sm:text-base uppercase tracking-wide text-amber-800 dark:text-amber-300">Règle d'or du module :</h4>
+              <p class="text-xs sm:text-sm mt-1 leading-relaxed font-semibold text-slate-800 dark:text-slate-100">${step.goldenRule}</p>
+            </div>
+          </div>
+        ` : ''}
+
         <!-- 1. Encart stylisé résumant l'objectif général : "Ce que nous allons accomplir" -->
         <section class="mb-8 rounded-3xl bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-orange-500/5 border-2 border-[#ff7d00]/50 p-6 sm:p-8 shadow-md glow-7robot">
           <div class="flex items-start space-x-4">
@@ -939,7 +958,27 @@
                   </span>
                 </div>
               </div>
-            ` : ''}
+            ` : `
+              <!-- Grand placeholder d'image bien visible pour le résultat final attendu -->
+              <div class="image-placeholder border-dashed border-2 border-gray-400 dark:border-slate-600 bg-gray-100 dark:bg-slate-800/80 p-8 sm:p-12 text-center my-3 rounded-2xl flex flex-col items-center justify-center space-y-3">
+                <div class="w-14 h-14 rounded-2xl bg-orange-500/10 dark:bg-orange-500/20 text-[#ff7d00] flex items-center justify-center border border-orange-500/30">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-black text-base sm:text-lg text-slate-800 dark:text-slate-100">
+                    ${step.expectedResult ? step.expectedResult.placeholderText || ('Illustration : ' + step.expectedResult.title) : 'Illustration : Aperçu des 4 pièces finales'}
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto">
+                    ${step.expectedResult ? step.expectedResult.description : 'Grand placeholder d\'image pour le résultat final'}
+                  </p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-[#ff7d00]/15 text-[#ff7d00] border border-[#ff7d00]/30">
+                  ${step.expectedResult ? step.expectedResult.badge : '7ROBOT CAD LMS'}
+                </span>
+              </div>
+            `}
 
             <!-- Encart placeholder descriptif -->
             <div class="flex items-center space-x-3.5 p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80">
@@ -1449,7 +1488,7 @@
         </h2>
 
         <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-          Toutes nos félicitations de la part du club <strong>7Robot</strong> ! Tu as brillamment validé les 17 étapes du parcours : de l'esquisse 100% contrainte jusqu'à la conception en contexte de la glissière Feetech, des inserts thermofusibles M3 et du couvercle fraisé.
+          Toutes nos félicitations de la part du club <strong>7Robot</strong> ! Tu as brillamment validé toutes les étapes du parcours : de l'esquisse 100% contrainte jusqu'aux outils de modélisation avancés (Révolution, Répétition circulaire, Balayage et Symétrie).
         </p>
 
         <!-- Grille des compétences validées -->
@@ -1460,19 +1499,19 @@
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Balayage, révolution cylindrique et répétitions 3D</span>
+            <span>Extrusion, enlèvement de matière et sélection de contours</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Conception en contexte (Top-Down) sur servomoteur Feetech</span>
+            <span>Révolution 360° et cotation automatique de diamètre</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Glissière Feetech sans vis dans le servo & inserts laiton Ø4.6 mm</span>
+            <span>Répétitions circulaires à espacement régulier</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Couvercle fraisé Ø3.2 mm (chanfrein 45° x 1.75 mm) pour vis FHC M3</span>
+            <span>Balayage volumique et Symétrie de corps avec fusion</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
