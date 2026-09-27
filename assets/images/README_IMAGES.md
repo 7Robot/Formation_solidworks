@@ -35,9 +35,6 @@ Toutes les étapes du cours disposent désormais de **médias réels (captures d
 
 ---
 
-## 🔄 Comment tester une image personnalisée ?
+## ✨ Statut des médias
 
-Sur chaque page de chapitre, vous disposez d'un bouton interactif **"Tester une capture locale"** sous l'image :
-1. Cliquez sur le bouton.
-2. Choisissez une capture PNG, JPG ou GIF depuis votre ordinateur.
-3. Le site l'affiche en direct sans recharger la page ni modifier les fichiers source.
+Toutes les étapes du cours disposent désormais de leurs **médias définitifs intégrés et optimisés** (photos HD, captures d'écran SolidWorks réelles du club, schémas vectoriels SVG et animations GIF cinématiques).

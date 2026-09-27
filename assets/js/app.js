@@ -748,38 +748,17 @@
               loading="lazy"
             />
             
-            <!-- Barre technique inférieure avec titre et bouton de test local -->
-            <div class="p-3 bg-slate-900/95 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <!-- Barre technique inférieure avec titre -->
+            <div class="px-3.5 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between gap-3 text-xs">
               <div class="flex items-center space-x-2 text-slate-300 min-w-0">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
                 <span class="font-bold text-white truncate">${ph.title}</span>
                 <span class="hidden md:inline text-slate-400 font-mono text-[11px] truncate">&bull; ${ph.caption}</span>
               </div>
               
-              <div class="flex items-center space-x-2 shrink-0 no-print">
-                ${previewUrl ? `
-                  <button 
-                    type="button" 
-                    onclick="window.__removeUserImage('${step.id}')"
-                    class="px-2.5 py-1.5 rounded-lg bg-red-600/90 hover:bg-red-700 text-white text-xs font-semibold shadow flex items-center space-x-1"
-                    title="Revenir à l'image du tutoriel"
-                  >
-                    <span>Rétablir l'original</span>
-                  </button>
-                ` : ''}
-                <label class="cursor-pointer px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium flex items-center space-x-1.5 border border-slate-700 hover:border-[#ff7d00] transition-colors">
-                  <svg class="w-3.5 h-3.5 text-[#ff7d00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                  </svg>
-                  <span>Tester une capture locale</span>
-                  <input 
-                    type="file" 
-                    accept="image/*" 
-                    class="hidden" 
-                    onchange="window.__handleImageUpload(event, '${step.id}')"
-                  />
-                </label>
-              </div>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#ff7d00]/15 text-[#ff7d00] border border-[#ff7d00]/30 shrink-0">
+                7Robot CAD
+              </span>
             </div>
           </div>
         ` : `
@@ -805,29 +784,13 @@
             </p>
 
             <!-- Détails techniques de fichier attendu -->
-            <div class="flex flex-wrap items-center justify-center gap-2 text-[11px] font-mono text-slate-500 dark:text-slate-400 mb-5">
+            <div class="flex flex-wrap items-center justify-center gap-2 text-[11px] font-mono text-slate-500 dark:text-slate-400">
               <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/50 dark:border-slate-700/50">
                 Format : ${ph.recommendedDimensions}
               </span>
               <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/50 dark:border-slate-700/50">
                 Fichier cible : assets/images/${ph.imageFileName}
               </span>
-            </div>
-
-            <!-- Bouton interactif pour tester une capture d'écran locale en live -->
-            <div class="flex items-center space-x-3 no-print">
-              <label class="cursor-pointer px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 text-white text-xs font-semibold shadow-sm transition-all flex items-center space-x-2 border border-slate-700 hover:border-[#ff7d00]">
-                <svg class="w-4 h-4 text-[#ff7d00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                </svg>
-                <span>Tester une image / GIF locale</span>
-                <input 
-                  type="file" 
-                  accept="image/*" 
-                  class="hidden" 
-                  onchange="window.__handleImageUpload(event, '${step.id}')"
-                />
-              </label>
             </div>
           </div>
         `}
