@@ -124,6 +124,65 @@ const COURSE_STEPS = [
   // --------------------------------------------------------------------------
   // MODULE 1 : LE CYLINDRE
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // MODULE 1 : PRÉSENTATION & OBJECTIFS
+  // --------------------------------------------------------------------------
+  {
+    id: "step-1-intro",
+    moduleIndex: 1,
+    isModuleIntro: true,
+    stepNumber: "Intro",
+    targetStepId: "step-1-1",
+    targetStepNumber: "1.1",
+    shortTitle: "Présentation & Objectifs",
+    title: "Module 1 : Ta première pièce 3D (Le Cylindre)",
+    moduleTitle: "Module 1 : Ta première pièce 3D (Le Cylindre)",
+    subtitle: "Découvrir l'interface et créer une entretoise cylindrique réelle",
+    category: "Présentation de module",
+    duration: "20 min au total",
+    difficulty: "Débutant",
+    summary: "Introduction du Module 1 : Découvrir l'interface en créant une pièce très simple (un cylindre servant d'entretoise). Choisir un plan, tracer un cercle et lui donner du volume.",
+    generalGoal: "L'objectif est de découvrir l'interface en créant une pièce très simple : un cylindre (qui servira d'entretoise). On va voir comment choisir un plan, faire un cercle et lui donner du volume avec une extrusion.",
+    skills: [
+      {
+        title: "Choisir le bon plan de travail",
+        desc: "Comprendre où poser sa feuille de dessin virtuelle parmi les 3 plans par défaut (Face, Dessus, Droite)."
+      },
+      {
+        title: "Tracer et coter une esquisse 2D",
+        desc: "Dessiner un cercle centré sur l'origine et fixer son diamètre précis de 30 mm avec la Cotation intelligente."
+      },
+      {
+        title: "Donner du volume 3D (Extrusion)",
+        desc: "Transformer une esquisse plane en solide réel de 50 mm de haut avec la fonction Bossage / Base extrudée."
+      }
+    ],
+    expectedResult: {
+      badge: "RÉSULTAT DU MODULE 1",
+      title: "Entretoise cylindrique terminée (Ø30 mm × 50 mm)",
+      description: "Une pièce mécanique simple, rigide et cotée au millimètre près, prête pour l'atelier ou l'impression 3D.",
+      imageSrc: "assets/images/mod1_extrusion_bossage_cylindre.svg",
+      placeholderText: "Aperçu du modèle 3D attendu : Le cylindre 3D ombré avec son esquisse cotée à Ø30 mm.",
+      recommendedDimensions: "1920 x 1080 px"
+    },
+    instructions: [],
+    objectives: [],
+    quickGoal: {
+      concept: "Découvrir l'interface en créant une entretoise cylindrique réelle de 50 mm.",
+      actions: [
+        "Choisir le plan de travail virtuel",
+        "Tracer un cercle coté à 30 mm",
+        "Extruder en volume 3D de 50 mm"
+      ]
+    },
+    placeholder: {
+      title: "Entretoise cylindrique terminée (Ø30 mm × 50 mm)",
+      caption: "Une pièce mécanique simple, rigide et cotée au millimètre près.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "mod1_extrusion_bossage_cylindre.svg",
+      svgType: "extrude"
+    }
+  },
   {
     id: "step-1-1",
     moduleIndex: 1,
@@ -318,6 +377,70 @@ const COURSE_STEPS = [
   // --------------------------------------------------------------------------
   // MODULE 2 : FOCUS SKETCH & CONTRAINTES
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // MODULE 2 : PRÉSENTATION & OBJECTIFS
+  // --------------------------------------------------------------------------
+  {
+    id: "step-2-intro",
+    moduleIndex: 2,
+    isModuleIntro: true,
+    stepNumber: "Intro",
+    targetStepId: "step-2-1",
+    targetStepNumber: "2.1",
+    shortTitle: "Présentation & Objectifs",
+    title: "Module 2 : L'art de l'esquisse et des contraintes",
+    moduleTitle: "Module 2 : L'art de l'esquisse et des contraintes",
+    subtitle: "Maîtriser la 2D pour concevoir des géométries solides sans erreurs",
+    category: "Présentation de module",
+    duration: "45 min au total",
+    difficulty: "Intermédiaire",
+    summary: "Introduction du Module 2 : Maîtriser la 2D (les esquisses), la base de tout. Utiliser les lignes de construction et les relations géométriques pour bien contraindre les pièces sans cotes inutiles.",
+    generalGoal: "L'objectif est de maîtriser la 2D (les esquisses). C'est la base de tout ! On va apprendre à utiliser les lignes de construction et les relations géométriques pour bien contraindre les pièces sans avoir à mettre des cotes (dimensions) partout.",
+    skills: [
+      {
+        title: "L'ancrage sur l'Origine rouge (0,0)",
+        desc: "Comprendre pourquoi l'origine est sacrée et comment elle empêche ta pièce de dériver dans le vide."
+      },
+      {
+        title: "Les 4 relations géométriques reines",
+        desc: "Remplacer les cotes superflues par des contraintes intelligentes : Coïncidence, Concentricité, Tangence et Perpendicularité."
+      },
+      {
+        title: "Passer du bleu au noir (Totalement contraint)",
+        desc: "Le code couleur vital de SolidWorks : une esquisse bleue bouge et casse, une esquisse noire est indestructible."
+      },
+      {
+        title: "Outils de productivité d'esquisse",
+        desc: "Gagner du temps avec les lignes de construction, la Symétrie 2D, le Décalage d'entités et l'Ajustement rapide."
+      }
+    ],
+    expectedResult: {
+      badge: "RÉSULTAT DU MODULE 2",
+      title: "Profil technique entièrement noir (100% contraint)",
+      description: "Une esquisse paramétrique propre, robuste aux modifications d'échelle et sans sur-cotation jaune ou rouge.",
+      imageSrc: "assets/images/mod2_bleu_vers_noir.svg",
+      placeholderText: "Aperçu du modèle 3D attendu : Esquisse fermée aux traits noirs avec ses symboles de contraintes verts visibles.",
+      recommendedDimensions: "1920 x 1080 px"
+    },
+    instructions: [],
+    objectives: [],
+    quickGoal: {
+      concept: "Maîtriser les esquisses 2D pour verrouiller les pièces avec les contraintes géométriques.",
+      actions: [
+        "S'accrocher à l'Origine rouge",
+        "Appliquer les 4 relations reines",
+        "Passer tous les traits du bleu au noir",
+        "Utiliser les outils symétrie et ajustement"
+      ]
+    },
+    placeholder: {
+      title: "Profil technique entièrement noir (100% contraint)",
+      caption: "Une esquisse paramétrique propre, robuste aux modifications.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "mod2_bleu_vers_noir.svg",
+      svgType: "sketch"
+    }
+  },
   {
     id: "step-2-1",
     moduleIndex: 2,
@@ -572,6 +695,65 @@ const COURSE_STEPS = [
   // --------------------------------------------------------------------------
   // MODULE 3 : FONCTIONS 3D AVANCÉES
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // MODULE 3 : PRÉSENTATION & OBJECTIFS
+  // --------------------------------------------------------------------------
+  {
+    id: "step-3-intro",
+    moduleIndex: 3,
+    isModuleIntro: true,
+    stepNumber: "Intro",
+    targetStepId: "step-3-1",
+    targetStepNumber: "3.1",
+    shortTitle: "Présentation & Objectifs",
+    title: "Module 3 : Fonctions 3D avancées",
+    moduleTitle: "Module 3 : Fonctions 3D avancées",
+    subtitle: "Balayage, révolution et répétitions pour modéliser 3x plus vite",
+    category: "Présentation de module",
+    duration: "40 min au total",
+    difficulty: "Avancé",
+    summary: "Introduction du Module 3 : Découvrir des outils 3D qui font gagner du temps : l'extrusion qui suit une courbe, l'extrusion circulaire et surtout les symétries pour ne pas redessiner deux fois la même chose.",
+    generalGoal: "L'objectif est de découvrir des outils 3D qui font gagner du temps : l'extrusion qui suit une courbe, l'extrusion circulaire, et surtout les symétries pour ne pas avoir à dessiner deux fois la même chose.",
+    skills: [
+      {
+        title: "Le Balayage volumique (Sweep)",
+        desc: "Faire glisser un profil 2D le long d'un guide courbe pour créer des câbles, tubulures ou ressorts de robot."
+      },
+      {
+        title: "La Révolution autour d'un axe",
+        desc: "Créer un axe épaulé, une poulie ou une roue en faisant tourner un demi-profil autour d'un trait d'axe."
+      },
+      {
+        title: "Répétitions circulaires et symétries 3D",
+        desc: "Dupliquer des perçages réguliers ou des formes complexes en un clic pour diviser le temps de modélisation par 4."
+      }
+    ],
+    expectedResult: {
+      badge: "RÉSULTAT DU MODULE 3",
+      title: "Moyeu mécanique percé & axe usiné complet",
+      description: "Des volumes 3D complexes générés avec des fonctions paramétriques épurées et ultra faciles à éditer.",
+      imageSrc: "assets/images/mod3_repetition_circulaire_moyeu.svg",
+      placeholderText: "Aperçu du modèle 3D attendu : Le moyeu circulaire avec ses 6 perçages répétés et son axe de révolution.",
+      recommendedDimensions: "1920 x 1080 px"
+    },
+    instructions: [],
+    objectives: [],
+    quickGoal: {
+      concept: "Exploiter le balayage, la révolution et les répétitions pour accélérer la création 3D.",
+      actions: [
+        "Faire glisser une forme le long d'une courbe (Balayage)",
+        "Tourner à 360° autour d'un axe (Révolution)",
+        "Dupliquer 6 trous en cercle en un clic (Répétition)"
+      ]
+    },
+    placeholder: {
+      title: "Moyeu mécanique percé & axe usiné complet",
+      caption: "Volumes complexes et répétitions circulaires.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "mod3_repetition_circulaire_moyeu.svg",
+      svgType: "pattern"
+    }
+  },
   {
     id: "step-3-1",
     moduleIndex: 3,
@@ -764,6 +946,70 @@ const COURSE_STEPS = [
   // --------------------------------------------------------------------------
   // MODULE 4 : PROJET RÉEL - LE BOÎTIER FEETECH
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // MODULE 4 : PRÉSENTATION & OBJECTIFS
+  // --------------------------------------------------------------------------
+  {
+    id: "step-4-intro",
+    moduleIndex: 4,
+    isModuleIntro: true,
+    stepNumber: "Intro",
+    targetStepId: "step-4-1",
+    targetStepNumber: "4.1",
+    shortTitle: "Présentation & Objectifs",
+    title: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Concevoir un sous-ensemble mécanique complet pour les robots de compétition",
+    category: "Présentation de module",
+    duration: "1h30 au total",
+    difficulty: "Synthèse",
+    summary: "Introduction du Module 4 : Concevoir un sous-ensemble mécanique complet. Modéliser sur mesure le boîtier du servomoteur Feetech et son couvercle, puis passer en Assemblage pour lier les pièces avec contraintes et vérifier l'emboîtement.",
+    generalGoal: "L'objectif est de concevoir un sous-ensemble mécanique complet. On va d'abord modéliser sur mesure le boîtier de notre servomoteur Feetech, puis son couvercle. Ensuite, on passera au mode 'Assemblage' pour lier ces deux pièces avec les bonnes contraintes (coïncidence, concentricité) et vérifier que tout s'emboîte parfaitement.",
+    skills: [
+      {
+        title: "Modélisation du boîtier sur mesure",
+        desc: "Créer la glissière d'accueil du servomoteur avec les tolérances d'impression 3D (+0.4 mm de jeu FDM)."
+      },
+      {
+        title: "Inserts laiton à chaud & vis fraisées FHC",
+        desc: "Préparer 4 puits de Ø4.6 mm pour inserts filetés M3 et concevoir le couvercle avec chanfreins à 45°."
+      },
+      {
+        title: "L'art de l'Assemblage mécanique",
+        desc: "Importer les composants, fixer le bâti et contraindre les pièces en Coïncidence et Concentricité."
+      },
+      {
+        title: "Contrôle cinématique & détection des collisions",
+        desc: "Faire pivoter le palonnier à la souris et vérifier que le mécanisme ne frotte nulle part avant fabrication."
+      }
+    ],
+    expectedResult: {
+      badge: "RÉSULTAT DU MODULE 4",
+      title: "Boîtier Feetech complet monté avec servo et visserie",
+      description: "Un actionneur mécatronique réel, fonctionnel, vérifié sans interférence et prêt pour la Coupe de France !",
+      imageSrc: "assets/images/boitier_feetech_assembly.png",
+      placeholderText: "Aperçu du modèle 3D attendu : L'assemblage 3D complet avec le servo inséré, le couvercle vissé et les inserts visibles.",
+      recommendedDimensions: "1920 x 1080 px"
+    },
+    instructions: [],
+    objectives: [],
+    quickGoal: {
+      concept: "Concevoir le boîtier servo, le couvercle et assembler le tout avec validation cinématique.",
+      actions: [
+        "Modéliser le boîtier avec glissière (+0.4mm) et puits d'inserts (Ø4.6mm)",
+        "Créer le couvercle avec trous Ø3.2mm et chanfreins 45°",
+        "Assembler avec contraintes de Coïncidence et Concentricité",
+        "Tester la rotation du palonnier et traquer les collisions"
+      ]
+    },
+    placeholder: {
+      title: "Boîtier Feetech complet monté avec servo et visserie",
+      caption: "Actionneur mécatronique complet prêt pour la Coupe de France.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "boitier_feetech_assembly.png",
+      svgType: "assembly"
+    }
+  },
   {
     id: "step-4-1",
     moduleIndex: 4,

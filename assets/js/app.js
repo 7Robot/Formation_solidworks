@@ -291,7 +291,8 @@
         return (
           s.title.toLowerCase().includes(filterQuery) ||
           s.subtitle.toLowerCase().includes(filterQuery) ||
-          s.summary.toLowerCase().includes(filterQuery) ||
+          (s.summary && s.summary.toLowerCase().includes(filterQuery)) ||
+          (s.generalGoal && s.generalGoal.toLowerCase().includes(filterQuery)) ||
           s.stepNumber.toLowerCase().includes(filterQuery)
         );
       });
@@ -352,13 +353,16 @@
             ${matchingSteps.map(step => {
               const isActive = step.id === STATE.currentStepId;
               const isDone = STATE.completedSteps.has(step.id);
+              const isIntro = step.isModuleIntro === true;
 
               return `
                 <div 
                   class="group flex items-center justify-between px-2.5 py-2 rounded-lg text-left text-xs transition-all duration-150 cursor-pointer ${
                     isActive 
                       ? 'bg-[#ff7d00] text-white font-medium shadow-sm shadow-orange-500/30' 
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-800/80'
+                      : isIntro
+                        ? 'text-orange-600 dark:text-orange-400 bg-orange-500/5 dark:bg-orange-500/10 hover:bg-orange-500/15 dark:hover:bg-orange-500/20 border border-orange-500/25 mb-1'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200/70 dark:hover:bg-slate-800/80'
                   }"
                   onclick="window.__goToStep('${step.id}')"
                 >
@@ -374,7 +378,9 @@
                             : 'bg-emerald-500 text-white border-emerald-500' 
                           : isActive 
                             ? 'border-white/60 hover:border-white' 
-                            : 'border-slate-300 dark:border-slate-600 hover:border-[#ff7d00]'
+                            : isIntro
+                              ? 'border-orange-400/80 dark:border-orange-500/80 text-[#ff7d00]'
+                              : 'border-slate-300 dark:border-slate-600 hover:border-[#ff7d00]'
                       }"
                       title="${isDone ? 'Marquer comme non terminée' : 'Marquer comme terminée'}"
                     >
@@ -382,19 +388,28 @@
                         <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
+                      ` : isIntro ? `
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#ff7d00]"></span>
                       ` : ''}
                     </button>
 
                     <!-- Titre de l'étape -->
                     <div class="truncate">
-                      <span class="font-mono text-[10px] opacity-75 mr-1">${step.stepNumber}</span>
-                      <span>${step.title.split(':')[0]}</span>
+                      ${isIntro ? `
+                        <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold uppercase ${
+                          isActive ? 'bg-white/20 text-white' : 'bg-orange-500/20 text-[#ff7d00] dark:text-orange-400'
+                        } mr-1">Objectifs</span>
+                        <span class="font-bold">${step.shortTitle || 'Présentation du module'}</span>
+                      ` : `
+                        <span class="font-mono text-[10px] opacity-75 mr-1">${step.stepNumber}</span>
+                        <span>${step.title.split(':')[0]}</span>
+                      `}
                     </div>
                   </div>
 
                   <!-- Durée badge -->
                   <span class="shrink-0 text-[10px] font-mono opacity-70 ml-1">
-                    ${step.duration}
+                    ${isIntro ? 'Intro' : step.duration}
                   </span>
                 </div>
               `;
@@ -433,6 +448,12 @@
     try {
       const step = window.COURSE_STEPS.find(s => s.id === STATE.currentStepId);
       if (!step) return;
+
+      // Affichage spécifique pour les pages d'introduction de module
+      if (step.isModuleIntro) {
+        renderModuleIntroContent(step, container);
+        return;
+      }
 
     const currentIndex = window.COURSE_STEPS.findIndex(s => s.id === STATE.currentStepId);
     const totalSteps = window.COURSE_STEPS.length;
@@ -728,6 +749,242 @@
   }
 
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // RENDU DES PAGES D'INTRODUCTION DE MODULE (PRÉSENTATION & OBJECTIFS)
+  // --------------------------------------------------------------------------
+  function renderModuleIntroContent(step, container) {
+    const currentIndex = window.COURSE_STEPS.findIndex(s => s.id === step.id);
+    const totalSteps = window.COURSE_STEPS.length;
+    const isCompleted = STATE.completedSteps.has(step.id);
+    const hasPrevious = currentIndex > 0;
+    const hasNext = currentIndex < totalSteps - 1;
+
+    let diffBadgeColor = 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300';
+    if (step.difficulty === 'Intermédiaire') {
+      diffBadgeColor = 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300';
+    } else if (step.difficulty === 'Avancé') {
+      diffBadgeColor = 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300';
+    } else if (step.difficulty === 'Synthèse') {
+      diffBadgeColor = 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300';
+    }
+
+    const html = `
+      <article class="max-w-4xl mx-auto step-fade-in pb-16">
+        <!-- Fil d'Ariane -->
+        <nav class="flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400 mb-6 font-mono no-print">
+          <span class="hover:text-[#ff7d00] cursor-pointer" onclick="window.__goToStep('${window.COURSE_STEPS[0].id}')">7Robot Academy</span>
+          <span>/</span>
+          <span class="truncate max-w-[200px]">${step.moduleTitle}</span>
+          <span>/</span>
+          <span class="text-orange-600 dark:text-[#ff7d00] font-bold">Présentation & Objectifs</span>
+        </nav>
+
+        <!-- En-tête Héro Spécifique Présentation -->
+        <header class="mb-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800 text-white shadow-xl relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-[#ff7d00]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute right-4 top-4 font-mono text-[10px] text-slate-400 uppercase tracking-widest hidden sm:block">
+            7Robot CAD LMS &bull; Vue d'ensemble
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-[#ff7d00] text-white shadow-sm flex items-center space-x-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>Présentation de Module</span>
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold ${diffBadgeColor}">
+              ${step.difficulty}
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+              ⏱️ ${step.duration}
+            </span>
+          </div>
+
+          <h1 class="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+            ${step.title}
+          </h1>
+          <p class="mt-3 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+            ${step.subtitle}
+          </p>
+        </header>
+
+        <!-- 1. Encart stylisé résumant l'objectif général : "Ce que nous allons accomplir" -->
+        <section class="mb-8 rounded-3xl bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-orange-500/5 border-2 border-[#ff7d00]/50 p-6 sm:p-8 shadow-md glow-7robot">
+          <div class="flex items-start space-x-4">
+            <div class="shrink-0 p-3 bg-[#ff7d00] text-white rounded-2xl shadow-md">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase bg-[#ff7d00] text-white mb-2 shadow-sm">
+                <span>🎯 Objectif Général</span>
+              </div>
+              <h2 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-3">
+                Ce que nous allons accomplir
+              </h2>
+              <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                ${step.generalGoal}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Liste à puces très courte des compétences abordées -->
+        <section class="mb-8 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-9 h-9 rounded-xl bg-orange-500/10 dark:bg-orange-500/20 text-[#ff7d00] flex items-center justify-center font-bold">
+              ⚡
+            </div>
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                Compétences clés abordées
+              </h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Ce que tu sauras faire à la fin de ce module
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${step.skills.map((skill, idx) => `
+              <div class="flex items-start space-x-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 hover:border-[#ff7d00]/40 transition-colors">
+                <span class="w-6 h-6 rounded-full bg-[#ff7d00] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  ${idx + 1}
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-snug">
+                    ${skill.title}
+                  </h3>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    ${skill.desc}
+                  </p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- 3. Gros bloc visuel montrant le résultat final attendu -->
+        <section class="mb-10">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-2.5">
+              <span class="text-lg">👀</span>
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                Résultat final attendu
+              </h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
+              Modèle CAO à valider
+            </span>
+          </div>
+
+          <!-- Gros conteneur visuel stylisé avec viseurs techniques CAD -->
+          <div class="cad-screenshot-placeholder relative rounded-3xl border-2 border-dashed border-orange-500/40 dark:border-orange-500/30 bg-slate-100/90 dark:bg-slate-900/80 p-5 sm:p-7 overflow-hidden shadow-md group">
+            <!-- Viseurs CAD aux 4 coins -->
+            <span class="absolute top-3 left-3 text-slate-400 dark:text-slate-600 font-mono text-xs select-none">+</span>
+            <span class="absolute top-3 right-3 text-slate-400 dark:text-slate-600 font-mono text-xs select-none">+</span>
+            <span class="absolute bottom-3 left-3 text-slate-400 dark:text-slate-600 font-mono text-xs select-none">+</span>
+            <span class="absolute bottom-3 right-3 text-slate-400 dark:text-slate-600 font-mono text-xs select-none">+</span>
+
+            <!-- Aperçu de l'image -->
+            ${step.expectedResult && step.expectedResult.imageSrc ? `
+              <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 bg-slate-950/60 mb-4">
+                <img 
+                  src="${step.expectedResult.imageSrc}" 
+                  alt="${step.expectedResult.title}" 
+                  class="w-full h-auto max-h-[460px] object-contain mx-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.01]" 
+                  loading="lazy"
+                />
+                <div class="px-4 py-3 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between gap-3 text-xs">
+                  <div class="flex items-center space-x-2 text-slate-200 min-w-0">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                    <span class="font-bold truncate text-white">${step.expectedResult.title}</span>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#ff7d00]/20 text-[#ff7d00] border border-[#ff7d00]/40 shrink-0">
+                    ${step.expectedResult.badge}
+                  </span>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- Encart placeholder descriptif -->
+            <div class="flex items-center space-x-3.5 p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80">
+              <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-[#ff7d00] flex items-center justify-center shrink-0 border border-orange-500/20">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">
+                  ${step.expectedResult ? step.expectedResult.title : 'Résultat attendu'}
+                </h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
+                  ${step.expectedResult ? step.expectedResult.description : ''}
+                </p>
+                <div class="mt-2 flex flex-wrap gap-2 text-[10px] font-mono text-slate-400">
+                  <span class="px-2 py-0.5 rounded bg-slate-200/70 dark:bg-slate-700/60">Format recommandé : ${step.expectedResult ? step.expectedResult.recommendedDimensions : '1920x1080'}</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-200/70 dark:bg-slate-700/60">${step.expectedResult ? step.expectedResult.placeholderText : ''}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Grand bouton d'appel à l'action : "Démarrer ce module" -->
+        <div class="mb-10 p-8 rounded-3xl bg-gradient-to-r from-orange-500/20 via-amber-500/15 to-orange-500/10 border-2 border-[#ff7d00] text-center shadow-xl glow-7robot">
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2">
+            Prêt à te lancer ?
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto mb-6">
+            Ouvre SolidWorks sur ton poste et démarre la première étape guidée pas à pas !
+          </p>
+
+          <button
+            type="button"
+            onclick="window.__startModule('${step.id}', '${step.targetStepId}')"
+            class="inline-flex items-center justify-center space-x-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-[#ff7d00] to-orange-600 hover:from-[#e06e00] hover:to-orange-700 text-white font-extrabold text-base sm:text-lg shadow-xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer"
+          >
+            <span>Démarrer ce module (Étape ${step.targetStepNumber})</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Pied de page de navigation secondaire -->
+        <footer class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between no-print">
+          <button
+            type="button"
+            onclick="window.__goToPreviousStep()"
+            class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center space-x-2 transition-all ${
+              !hasPrevious ? 'opacity-40 cursor-not-allowed pointer-events-none' : ''
+            }"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Étape précédente</span>
+          </button>
+
+          <button
+            type="button"
+            onclick="window.__startModule('${step.id}', '${step.targetStepId}')"
+            class="px-5 py-2.5 rounded-xl border border-orange-500/40 hover:bg-orange-500/10 text-[#ff7d00] text-xs font-bold flex items-center space-x-2 transition-all"
+          >
+            <span>Passer directement à l'étape ${step.targetStepNumber}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </footer>
+      </article>
+    `;
+
+    container.innerHTML = html;
+  }
+
   // ENCARTS D'ILLUSTRATION / PLACEHOLDERS HAUTE TECHNOLOGIE
   // --------------------------------------------------------------------------
   function renderImagePlaceholder(step) {
@@ -1311,6 +1568,13 @@
   // MÉTHODES PUBLIQUES ATTACHÉES À WINDOW (POUR LES HANDLERS HTML)
   // --------------------------------------------------------------------------
   window.__goToStep = goToStep;
+  window.__startModule = function (introStepId, targetStepId) {
+    if (introStepId) {
+      STATE.completedSteps.add(introStepId);
+      saveProgress();
+    }
+    goToStep(targetStepId);
+  };
   window.__goToNextStep = goToNextStep;
   window.__goToPreviousStep = goToPreviousStep;
   window.__toggleStepCompletion = toggleStepCompletion;

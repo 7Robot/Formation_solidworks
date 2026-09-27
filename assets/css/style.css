@@ -154,3 +154,16 @@ code, kbd, pre, .font-mono {
   border-color: rgba(255, 125, 0, 0.7);
   box-shadow: 0 4px 20px -2px rgba(255, 125, 0, 0.15);
 }
+
+/* Cartes et sections de présentation de module */
+.intro-glow-card {
+  position: relative;
+  box-shadow: 0 10px 30px -10px rgba(255, 125, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-glow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px -8px rgba(255, 125, 0, 0.35);
+}
+
