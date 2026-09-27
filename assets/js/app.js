@@ -32,6 +32,9 @@
   // INITIALISATION
   // --------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     loadSavedState();
     setupTheme();
     setupEventListeners();
@@ -145,8 +148,39 @@
   }
 
   // --------------------------------------------------------------------------
-  // NAVIGATION ENTRE ÉTAPES
+  // NAVIGATION ENTRE ÉTAPES & GESTION DU DÉFILEMENT (SCROLL TO TOP)
   // --------------------------------------------------------------------------
+  function scrollContentToTop() {
+    const scrollContainer = document.getElementById('main-content-scroll');
+    if (scrollContainer) {
+      scrollContainer.scrollTop = 0;
+      try {
+        scrollContainer.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      } catch (e) {}
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (document.documentElement) document.documentElement.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+
+    // Réitération immédiate sur la frame d'animation pour contrer le reflow
+    requestAnimationFrame(() => {
+      const el = document.getElementById('main-content-scroll');
+      if (el) el.scrollTop = 0;
+      window.scrollTo(0, 0);
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+    });
+
+    // Sécurité supplémentaire si des médias ou polices mettent quelques millisecondes à se dimensionner
+    setTimeout(() => {
+      const el = document.getElementById('main-content-scroll');
+      if (el) el.scrollTop = 0;
+      window.scrollTo(0, 0);
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+    }, 40);
+  }
+
   function goToStep(stepId) {
     const step = window.COURSE_STEPS.find(s => s.id === stepId);
     if (!step) return;
@@ -162,11 +196,8 @@
 
     renderApp();
 
-    // Défiler vers le haut de la zone de contenu
-    const scrollContainer = document.getElementById('main-content-scroll');
-    if (scrollContainer) {
-      scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Remonter systématiquement tout en haut de la page
+    scrollContentToTop();
   }
 
   function goToNextStep() {
@@ -737,6 +768,7 @@
     `;
 
     container.innerHTML = html;
+    scrollContentToTop();
     } catch (err) {
       console.error("Erreur lors de l'affichage de l'étape :", err);
       container.innerHTML = `
@@ -983,6 +1015,7 @@
     `;
 
     container.innerHTML = html;
+    scrollContentToTop();
   }
 
   // ENCARTS D'ILLUSTRATION / PLACEHOLDERS HAUTE TECHNOLOGIE
