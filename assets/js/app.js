@@ -1488,7 +1488,7 @@
         </h2>
 
         <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-          Toutes nos félicitations de la part du club <strong>7Robot</strong> ! Tu as brillamment validé toutes les étapes du parcours : de l'esquisse 100% contrainte jusqu'aux outils de modélisation avancés (Révolution, Répétition circulaire, Balayage et Symétrie).
+          Toutes nos félicitations de la part du club <strong>7Robot</strong> ! Tu as brillamment validé l'ensemble des 22 étapes du parcours : de l'esquisse 100% contrainte jusqu'aux outils avancés (Révolution, Répétition circulaire, Balayage, Symétrie) et la conception en contexte du boîtier Feetech avec inserts M3 et couvercle fraisé.
         </p>
 
         <!-- Grille des compétences validées -->
@@ -1499,23 +1499,19 @@
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Extrusion, enlèvement de matière et sélection de contours</span>
+            <span>Outils avancés : Révolution 360°, Répétitions, Balayage & Symétrie</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Révolution 360° et cotation automatique de diamètre</span>
+            <span>Conception en contexte (Top-Down) sur servomoteur Feetech</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Répétitions circulaires à espacement régulier</span>
+            <span>Glissière sans vis dans le servo & inserts laiton thermofusibles M3</span>
           </div>
           <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
             <span>✔</span>
-            <span>Balayage volumique et Symétrie de corps avec fusion</span>
-          </div>
-          <div class="flex items-center space-x-2 text-emerald-400 font-semibold">
-            <span>✔</span>
-            <span>Validation cinématique à 360° et détection d'interférences</span>
+            <span>Couvercle fraisé Ø3.2 mm (chanfrein 45°) & validation cinématique</span>
           </div>
         </div>
 

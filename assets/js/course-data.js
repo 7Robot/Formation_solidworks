@@ -30,17 +30,17 @@ const COURSE_MODULES = [
   },
   {
     id: "module-3",
-    title: "Module 3 : Fonctions 3D avancées",
-    shortTitle: "Mod 3 : Fonctions 3D avancées",
+    title: "Module 3 : Les outils de modélisation avancés",
+    shortTitle: "Mod 3 : Outils avancés",
     icon: "sparkles",
-    description: "Balayage le long d'une courbe, révolution cylindrique et répétition de perçages en cercle."
+    description: "Révolution, répétition circulaire, balayage et symétrie à travers 4 exercices pratiques."
   },
   {
     id: "module-4",
-    title: "Module 4 : Les outils de modélisation avancés",
-    shortTitle: "Mod 4 : Outils avancés",
-    icon: "sparkles",
-    description: "Révolution, répétition circulaire, balayage et symétrie à travers 4 exercices pratiques."
+    title: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    shortTitle: "Mod 4 : Boîtier Feetech & Assemblage",
+    icon: "puzzle",
+    description: "Glissière pour servomoteur Feetech, inserts laiton M3 (Ø4.6mm), couvercle fraisé et cinématique."
   }
 ];
 
@@ -693,10 +693,8 @@ const COURSE_STEPS = [
   },
 
   // --------------------------------------------------------------------------
-  // MODULE 3 : FONCTIONS 3D AVANCÉES
   // --------------------------------------------------------------------------
-  // --------------------------------------------------------------------------
-  // MODULE 3 : PRÉSENTATION & OBJECTIFS
+  // MODULE 3 : LES OUTILS DE MODÉLISATION AVANCÉS
   // --------------------------------------------------------------------------
   {
     id: "step-3-intro",
@@ -705,260 +703,9 @@ const COURSE_STEPS = [
     stepNumber: "Intro",
     targetStepId: "step-3-1",
     targetStepNumber: "3.1",
-    shortTitle: "Présentation & Objectifs",
-    title: "Module 3 : Fonctions 3D avancées",
-    moduleTitle: "Module 3 : Fonctions 3D avancées",
-    subtitle: "Balayage, révolution et répétitions pour modéliser 3x plus vite",
-    category: "Présentation de module",
-    duration: "40 min au total",
-    difficulty: "Avancé",
-    summary: "Introduction du Module 3 : Découvrir des outils 3D qui font gagner du temps : l'extrusion qui suit une courbe, l'extrusion circulaire et surtout les symétries pour ne pas redessiner deux fois la même chose.",
-    generalGoal: "L'objectif est de découvrir des outils 3D qui font gagner du temps : l'extrusion qui suit une courbe, l'extrusion circulaire, et surtout les symétries pour ne pas avoir à dessiner deux fois la même chose.",
-    skills: [
-      {
-        title: "Le Balayage volumique (Sweep)",
-        desc: "Faire glisser un profil 2D le long d'un guide courbe pour créer des câbles, tubulures ou ressorts de robot."
-      },
-      {
-        title: "La Révolution autour d'un axe",
-        desc: "Créer un axe épaulé, une poulie ou une roue en faisant tourner un demi-profil autour d'un trait d'axe."
-      },
-      {
-        title: "Répétitions circulaires et symétries 3D",
-        desc: "Dupliquer des perçages réguliers ou des formes complexes en un clic pour diviser le temps de modélisation par 4."
-      }
-    ],
-    expectedResult: {
-      badge: "RÉSULTAT DU MODULE 3",
-      title: "Moyeu mécanique percé & axe usiné complet",
-      description: "Des volumes 3D complexes générés avec des fonctions paramétriques épurées et ultra faciles à éditer.",
-      imageSrc: "assets/images/mod3_repetition_circulaire_moyeu.svg",
-      placeholderText: "Aperçu du modèle 3D attendu : Le moyeu circulaire avec ses 6 perçages répétés et son axe de révolution.",
-      recommendedDimensions: "1920 x 1080 px"
-    },
-    instructions: [],
-    objectives: [],
-    quickGoal: {
-      concept: "Exploiter le balayage, la révolution et les répétitions pour accélérer la création 3D.",
-      actions: [
-        "Faire glisser une forme le long d'une courbe (Balayage)",
-        "Tourner à 360° autour d'un axe (Révolution)",
-        "Dupliquer 6 trous en cercle en un clic (Répétition)"
-      ]
-    },
-    placeholder: {
-      title: "Moyeu mécanique percé & axe usiné complet",
-      caption: "Volumes complexes et répétitions circulaires.",
-      recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_repetition_circulaire_moyeu.svg",
-      svgType: "pattern"
-    }
-  },
-  {
-    id: "step-3-1",
-    moduleIndex: 3,
-    stepNumber: "3.1",
-    title: "Le Balayage (Faire glisser une forme le long d'une courbe)",
-    moduleTitle: "Module 3 : Fonctions 3D avancées",
-    subtitle: "Modéliser des tuyaux, câbles, joints et ressorts",
-    category: "Volumes complexes",
-    duration: "12 min",
-    difficulty: "Avancé",
-    summary: "Alors qu'une extrusion pousse un profil tout droit, le balayage pousse une forme le long d'une courbe quelconque.",
-    quickGoal: {
-      concept: "On combine deux esquisses : une trajectoire (la courbe) et un profil (le cercle) pour générer un tube ou un câble 3D.",
-      actions: [
-        "Esquisse 1 sur le Plan de Face : dessiner la trajectoire courbée.",
-        "Esquisse 2 sur le Plan de Droite : dessiner la section (ex: un cercle de 6 mm).",
-        "Lancer la fonction 'Bossage/Base balayé' pour créer la matière."
-      ]
-    },
-    imageSrc: "assets/images/sweep_helix.gif",
-    placeholder: {
-      title: "Animation : Balayage le long d'une courbe",
-      caption: "GIF animé illustrant la progression d'une section guidée le long d'une trajectoire 3D.",
-      recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "sweep_helix.gif",
-      svgType: "sweep"
-    },
-    instructions: [
-      {
-        title: "1. Les deux ingrédients du balayage",
-        text: "Pour réussir un balayage, il te faut obligatoirement 2 esquisses distinctes sur 2 plans perpendiculaires :",
-        bullets: [
-          "<strong>La Trajectoire (le chemin) :</strong> Dessinée par exemple sur le Plan de Face (une ligne droite raccordée à un arc de cercle).",
-          "<strong>Le Profil (la forme) :</strong> Dessiné sur un plan orthogonal (ex: le Plan de Droite), par exemple un cercle de Ø 6 mm placé au bout du chemin."
-        ]
-      },
-      {
-        title: "2. Lancer la fonction Bossage balayé",
-        text: "Une fois tes deux esquisses fermées :",
-        bullets: [
-          "Va dans l'onglet <strong>Fonctions</strong> ➔ clique sur <strong>Bossage/Base balayé</strong>.",
-          "Dans la case bleue, sélectionne ton profil (le petit cercle).",
-          "Dans la case rose, sélectionne ta trajectoire (la courbe).",
-          "Valide avec la coche verte : ton tube 3D est créé !"
-        ]
-      }
-    ],
-    warnings: [
-      {
-        title: "Le profil doit toucher le chemin !",
-        text: "Si ton cercle est dessiné dans le vide à 2 cm du début de ta courbe, SolidWorks affichera une erreur. Le centre du profil doit toucher le point de départ du chemin."
-      }
-    ],
-    tips: [
-      {
-        title: "L'option 'Profil circulaire' en 1 clic",
-        text: "Dans les versions récentes de SolidWorks, tu n'as même plus besoin de dessiner le petit cercle : dans la fonction Balayage, coche simplement <em>Profil circulaire</em> et tape le diamètre voulu !"
-      }
-    ]
-  },
-  {
-    id: "step-3-2",
-    moduleIndex: 3,
-    stepNumber: "3.2",
-    title: "La Révolution cylindrique (Tourner à 360°)",
-    moduleTitle: "Module 3 : Fonctions 3D avancées",
-    subtitle: "Créer des axes, roues et poulies en dessinant seulement une moitié",
-    category: "Pièces de révolution",
-    duration: "10 min",
-    difficulty: "Intermédiaire",
-    summary: "Pour fabriquer une pièce ronde étagée (comme un axe moteur), on dessine la moitié de sa silhouette et on la fait pivoter à 360° autour d'un axe.",
-    quickGoal: {
-      concept: "On trace un trait d'axe vertical et le demi-profil d'un axe étagé, puis on fait tourner à 360° avec la fonction Révolution.",
-      actions: [
-        "Tracer un trait d'axe vertical en pointillé sur l'origine.",
-        "Dessiner le demi-profil de l'axe à droite du trait.",
-        "Coter les diamètres en traversant l'axe avec la souris.",
-        "Lancer 'Bossage/Base avec révolution' pour créer la pièce."
-      ]
-    },
-    imageSrc: "assets/images/mod3_revolution_axe_epaule.svg",
-    placeholder: {
-      title: "Révolution d'un axe épaulé à 360°",
-      caption: "Demi-profil d'axe épaulé coté en diamètres tournant autour de son axe central.",
-      recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_revolution_axe_epaule.svg",
-      svgType: "revolve"
-    },
-    instructions: [
-      {
-        title: "1. Dessiner le demi-profil",
-        text: "Sur le Plan de Face :",
-        bullets: [
-          "Trace d'abord une <strong>Ligne de construction</strong> verticale passant par l'origine.",
-          "Dessine la moitié extérieure de ton axe avec des lignes normales (comme un escalier représentant les différents diamètres).",
-          "Ferme bien le contour en le rattachant à l'axe vertical."
-        ]
-      },
-      {
-        title: "2. L'astuce de la cotation en diamètre",
-        text: "Pour coter directement un diamètre sans devoir diviser par deux dans ta tête :",
-        bullets: [
-          "Prends la <strong>Cotation intelligente</strong>.",
-          "Clique sur l'axe central en pointillé, puis sur le bord extérieur de ton profil.",
-          "Fais glisser ta souris <strong>de l'autre côté de l'axe</strong> : SolidWorks bascule automatiquement la cote en diamètre complet (avec le symbole Ø) !"
-        ]
-      },
-      {
-        title: "3. Valider la révolution",
-        text: "Fonctions ➔ <strong>Bossage/Base avec révolution</strong> ➔ choisis 360° et valide : ta pièce ronde est achevée."
-      }
-    ],
-    warnings: [
-      {
-        title: "Ferme toujours le contour",
-        text: "Si ton profil a un trou ou ne touche pas l'axe, SolidWorks te demandera si tu veux créer une surface creuse au lieu d'un solide plein. Vérifie que ton profil forme une boucle fermée."
-      }
-    ],
-    tips: [
-      {
-        title: "Idéal pour les roues et poulies de robot",
-        text: "Toutes les roues en aluminium et les poulies courroies crantées GT2 du robot de match sont créées avec cette fonction Révolution."
-      }
-    ]
-  },
-  {
-    id: "step-3-3",
-    moduleIndex: 3,
-    stepNumber: "3.3",
-    title: "La Répétition circulaire (Percer plusieurs trous en rond)",
-    moduleTitle: "Module 3 : Fonctions 3D avancées",
-    subtitle: "Répéter des perçages sur un moyeu sans les redessiner un par un",
-    category: "Répétitions 3D",
-    duration: "8 min",
-    difficulty: "Intermédiaire",
-    summary: "Sur un moyeu de roue ou une bride de robot, perce un seul trou de vis M3 et répète-le 4 ou 6 fois en cercle en deux clics.",
-    quickGoal: {
-      concept: "On perce un trou sur une pièce ronde, puis on utilise la Répétition circulaire pour le dupliquer à intervalles réguliers sur 360°.",
-      actions: [
-        "Percer un trou de vis sur la face plane d'un moyeu.",
-        "Cliquer sur 'Répétition circulaire' dans le ruban Fonctions.",
-        "Sélectionner l'arête ronde du moyeu comme axe, entrer 6 occurrences et valider."
-      ]
-    },
-    imageSrc: "assets/images/mod3_repetition_circulaire_moyeu.svg",
-    placeholder: {
-      title: "Répétition circulaire de 6 trous M3",
-      caption: "Moyeu de roue avec un trou d'origine répété 6 fois à espacement constant sur 360°.",
-      recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_repetition_circulaire_moyeu.svg",
-      svgType: "pattern"
-    },
-    instructions: [
-      {
-        title: "1. Percer le premier trou",
-        text: "Sur la face avant de ta pièce cylindrique :",
-        bullets: [
-          "Ouvre une esquisse sur la face plane.",
-          "Dessine un cercle de Ø 3.2 mm (passage vis M3) aligné verticalement avec le centre.",
-          "Fonctions ➔ <strong>Enlèvement de matière extrudé</strong> ➔ choisis <em>À travers tout</em> et valide."
-        ]
-      },
-      {
-        title: "2. Lancer la répétition circulaire",
-        text: "Pour dupliquer ce trou sur toute la circonférence :",
-        bullets: [
-          "Dans l'onglet Fonctions, clique sur la flèche sous <em>Répétition linéaire</em> et choisis <strong>Répétition circulaire</strong>.",
-          "Dans la première case (Axe de répétition), clique sur le bord circulaire extérieur de ta pièce ronde.",
-          "Coche la case <strong>Espacement constant</strong> et tape <strong><code>360°</code></strong>.",
-          "Dans le nombre d'occurrences, tape par exemple <strong><code>6</code></strong>.",
-          "Dans la case <em>Fonctions à répéter</em>, sélectionne ton enlèvement de matière.",
-          "Valide : tes 6 trous sont parfaitement répartis en un quart de seconde !"
-        ]
-      }
-    ],
-    warnings: [
-      {
-        title: "Coche bien 'Espacement constant'",
-        text: "Si tu oublies de cocher 'Espacement constant', SolidWorks espacera chaque trou de l'angle tapé au lieu de diviser les 360° automatiquement !"
-      }
-    ],
-    tips: [
-      {
-        title: "Modifier le nombre de trous plus tard",
-        text: "Si tu veux passer de 6 à 4 trous plus tard, fais un clic droit sur la fonction dans l'arbre à gauche ➔ <em>Éditer la fonction</em> ➔ change le chiffre !"
-      }
-    ]
-  },
-
-  // --------------------------------------------------------------------------
-  // MODULE 4 : LES OUTILS DE MODÉLISATION AVANCÉS
-
-  // --------------------------------------------------------------------------
-  // MODULE 4 : LES OUTILS DE MODÉLISATION AVANCÉS
-  // --------------------------------------------------------------------------
-  {
-    id: "step-4-intro",
-    moduleIndex: 4,
-    isModuleIntro: true,
-    stepNumber: "Intro",
-    targetStepId: "step-4-1",
-    targetStepNumber: "4.1",
-    shortTitle: "Module 4 : Objectifs",
-    title: "Module 4 : Objectifs",
-    moduleTitle: "Module 4 : Les outils de modélisation avancés",
+    shortTitle: "Module 3 : Objectifs",
+    title: "Module 3 : Objectifs",
+    moduleTitle: "Module 3 : Les outils de modélisation avancés",
     subtitle: "Découvrir des outils 3D puissants qui font gagner un temps fou",
     category: "Présentation de module",
     duration: "35 min",
@@ -985,7 +732,7 @@ const COURSE_STEPS = [
       }
     ],
     expectedResult: {
-      badge: "RÉSULTAT DU MODULE 4",
+      badge: "RÉSULTAT DU MODULE 3",
       title: "Aperçu des 4 pièces finales",
       description: "Poulie de transmission, moyeu à 6 perçages, passage de câble tubulaire et pince de robot symétrique.",
       imageSrc: "",
@@ -1007,20 +754,20 @@ const COURSE_STEPS = [
       title: "Aperçu des 4 pièces finales",
       caption: "Poulie de transmission, moyeu percé, passage de câble et pince symétrique.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod4_apercu_4_pieces.png",
+      imageFileName: "mod3_apercu_4_pieces.png",
       svgType: "assembly"
     }
   },
 
   // --------------------------------------------------------------------------
-  // 4.1 L'OUTIL RÉVOLUTION : MODÉLISER UNE POULIE DE TRANSMISSION
+  // 3.1 L'OUTIL RÉVOLUTION : MODÉLISER UNE POULIE DE TRANSMISSION
   // --------------------------------------------------------------------------
   {
-    id: "step-4-1",
-    moduleIndex: 4,
-    stepNumber: "4.1",
-    title: "4.1 L'outil Révolution : Modéliser une poulie de transmission",
-    moduleTitle: "Module 4 : Les outils de modélisation avancés",
+    id: "step-3-1",
+    moduleIndex: 3,
+    stepNumber: "3.1",
+    title: "3.1 L'outil Révolution : Modéliser une poulie de transmission",
+    moduleTitle: "Module 3 : Les outils de modélisation avancés",
     subtitle: "Créer une pièce ronde en dessinant uniquement son profil",
     category: "Révolution 3D",
     duration: "8 min",
@@ -1099,20 +846,20 @@ const COURSE_STEPS = [
       title: "Poulie de transmission en 3D",
       caption: "Pièce mécanique obtenue par révolution à 360°.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod4_poulie_3d.png",
+      imageFileName: "mod3_poulie_3d.png",
       svgType: "revolution"
     }
   },
 
   // --------------------------------------------------------------------------
-  // 4.2 LA RÉPÉTITION CIRCULAIRE : PERCER LES TROUS D'UN MOYEU
+  // 3.2 LA RÉPÉTITION CIRCULAIRE : PERCER LES TROUS D'UN MOYEU
   // --------------------------------------------------------------------------
   {
-    id: "step-4-2",
-    moduleIndex: 4,
-    stepNumber: "4.2",
-    title: "4.2 La Répétition Circulaire : Percer les trous d'un moyeu",
-    moduleTitle: "Module 4 : Les outils de modélisation avancés",
+    id: "step-3-2",
+    moduleIndex: 3,
+    stepNumber: "3.2",
+    title: "3.2 La Répétition Circulaire : Percer les trous d'un moyeu",
+    moduleTitle: "Module 3 : Les outils de modélisation avancés",
     subtitle: "Percer un trou et le dupliquer en couronne régulière autour d'un axe",
     category: "Répétitions 3D",
     duration: "8 min",
@@ -1192,20 +939,20 @@ const COURSE_STEPS = [
       title: "Moyeu à 6 perçages réguliers",
       caption: "Répétition circulaire à espacement constant sur 360°.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod4_moyeu_trous.png",
+      imageFileName: "mod3_moyeu_trous.png",
       svgType: "pattern"
     }
   },
 
   // --------------------------------------------------------------------------
-  // 4.3 LE BALAYAGE : MODÉLISER UN PASSAGE DE CÂBLE TUBULAIRE
+  // 3.3 LE BALAYAGE : MODÉLISER UN PASSAGE DE CÂBLE TUBULAIRE
   // --------------------------------------------------------------------------
   {
-    id: "step-4-3",
-    moduleIndex: 4,
-    stepNumber: "4.3",
-    title: "4.3 Le Balayage : Modéliser un passage de câble tubulaire",
-    moduleTitle: "Module 4 : Les outils de modélisation avancés",
+    id: "step-3-3",
+    moduleIndex: 3,
+    stepNumber: "3.3",
+    title: "3.3 Le Balayage : Modéliser un passage de câble tubulaire",
+    moduleTitle: "Module 3 : Les outils de modélisation avancés",
     subtitle: "Faire glisser une forme le long d'une courbe",
     category: "Volumes complexes",
     duration: "10 min",
@@ -1275,20 +1022,20 @@ const COURSE_STEPS = [
       title: "Passage de câble tubulaire balayé",
       caption: "Profil circulaire étiré le long d'une courbe Spline.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod4_tube_balayage.png",
+      imageFileName: "mod3_tube_balayage.png",
       svgType: "sweep"
     }
   },
 
   // --------------------------------------------------------------------------
-  // 4.4 LA SYMÉTRIE : MODÉLISER UNE PINCE DE PRÉHENSION
+  // 3.4 LA SYMÉTRIE : MODÉLISER UNE PINCE DE PRÉHENSION
   // --------------------------------------------------------------------------
   {
-    id: "step-4-4",
-    moduleIndex: 4,
-    stepNumber: "4.4",
-    title: "4.4 La Symétrie : Modéliser une pince de préhension",
-    moduleTitle: "Module 4 : Les outils de modélisation avancés",
+    id: "step-3-4",
+    moduleIndex: 3,
+    stepNumber: "3.4",
+    title: "3.4 La Symétrie : Modéliser une pince de préhension",
+    moduleTitle: "Module 3 : Les outils de modélisation avancés",
     subtitle: "Ne dessiner que la moitié d'un objet et laisser SolidWorks faire le reste",
     category: "Symétrie 3D",
     duration: "9 min",
@@ -1301,7 +1048,7 @@ const COURSE_STEPS = [
         "Dessiner et extruder la demi-pince avec face médiane plane",
         "Sélectionner la face plane centrale en plan de symétrie",
         "Sélectionner le corps et cocher 'Fusionner les corps'",
-        "Valider et célébrer la fin du parcours"
+        "Valider et passer au grand projet réel du Module 4"
       ]
     },
     instructions: [
@@ -1332,7 +1079,7 @@ const COURSE_STEPS = [
           "Coche bien <strong>'Fusionner les corps'</strong> pour n'avoir qu'un seul objet solide à la fin. Valide.",
           "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Sélection de la face centrale et des corps à symétriser avec 'Fusionner les corps'</div>",
           "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Pince de préhension complète symétrisée en un seul solide</div>",
-          "<div class=\"my-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-orange-500/25 via-amber-500/20 to-orange-500/10 border-2 border-[#ff7d00] shadow-xl glow-7robot text-center\"><div class=\"inline-flex p-3.5 bg-[#ff7d00] text-white rounded-2xl shadow-lg mb-3\"><svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg></div><h3 class=\"text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight\">⚔️ Tu es maintenant prêt à modéliser des actionneurs pour les robots de combat !!!</h3><p class=\"text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed\">Félicitations ! Tu as complété avec succès les 4 exercices avancés (Révolution, Répétition circulaire, Balayage et Symétrie). Tu as toutes les compétences requises pour concevoir les pièces de 7Robot !</p></div>"
+          "<div class=\"my-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-orange-500/25 via-amber-500/20 to-orange-500/10 border-2 border-[#ff7d00] shadow-xl glow-7robot text-center\"><div class=\"inline-flex p-3.5 bg-[#ff7d00] text-white rounded-2xl shadow-lg mb-3\"><svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg></div><h3 class=\"text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight\">🎉 Module 3 validé avec succès !</h3><p class=\"text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed\">Bravo ! Tu as maîtrisé les 4 outils de modélisation avancés (Révolution, Répétition circulaire, Balayage et Symétrie). Tu as toutes les clés en main pour attaquer le grand projet du Module 4 : la conception complète du boîtier Feetech !</p></div>"
         ]
       }
     ],
@@ -1352,12 +1099,530 @@ const COURSE_STEPS = [
       title: "Pince de préhension complète symétrisée",
       caption: "Résultat final de la fonction Symétrie avec corps fusionnés.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod4_pince_symetrique.png",
+      imageFileName: "mod3_pince_symetrique.png",
       svgType: "mirror"
     }
+  },
+
+  // MODULE 4 : PROJET RÉEL - LE BOÎTIER FEETECH
+  // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // MODULE 4 : PRÉSENTATION & OBJECTIFS
+  // --------------------------------------------------------------------------
+  {
+    id: "step-4-intro",
+    moduleIndex: 4,
+    isModuleIntro: true,
+    stepNumber: "Intro",
+    targetStepId: "step-4-1",
+    targetStepNumber: "4.1",
+    shortTitle: "Présentation & Objectifs",
+    title: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Concevoir un sous-ensemble mécanique complet pour les robots de compétition",
+    category: "Présentation de module",
+    duration: "1h30 au total",
+    difficulty: "Synthèse",
+    summary: "Introduction du Module 4 : Concevoir un sous-ensemble mécanique complet. Modéliser sur mesure le boîtier du servomoteur Feetech et son couvercle, puis passer en Assemblage pour lier les pièces avec contraintes et vérifier l'emboîtement.",
+    generalGoal: "L'objectif est de concevoir un sous-ensemble mécanique complet. On va d'abord modéliser sur mesure le boîtier de notre servomoteur Feetech, puis son couvercle. Ensuite, on passera au mode 'Assemblage' pour lier ces deux pièces avec les bonnes contraintes (coïncidence, concentricité) et vérifier que tout s'emboîte parfaitement.",
+    skills: [
+      {
+        title: "Modélisation du boîtier sur mesure",
+        desc: "Créer la glissière d'accueil du servomoteur avec les tolérances d'impression 3D (+0.4 mm de jeu FDM)."
+      },
+      {
+        title: "Inserts laiton à chaud & vis fraisées FHC",
+        desc: "Préparer 4 puits de Ø4.6 mm pour inserts filetés M3 et concevoir le couvercle avec chanfreins à 45°."
+      },
+      {
+        title: "L'art de l'Assemblage mécanique",
+        desc: "Importer les composants, fixer le bâti et contraindre les pièces en Coïncidence et Concentricité."
+      },
+      {
+        title: "Contrôle cinématique & détection des collisions",
+        desc: "Faire pivoter le palonnier à la souris et vérifier que le mécanisme ne frotte nulle part avant fabrication."
+      }
+    ],
+    expectedResult: {
+      badge: "RÉSULTAT DU MODULE 4",
+      title: "Boîtier Feetech complet monté avec servo et visserie",
+      description: "Un actionneur mécatronique réel, fonctionnel, vérifié sans interférence et prêt pour la Coupe de France !",
+      imageSrc: "assets/images/boitier_feetech_assembly.png",
+      placeholderText: "Aperçu du modèle 3D attendu : L'assemblage 3D complet avec le servo inséré, le couvercle vissé et les inserts visibles.",
+      recommendedDimensions: "1920 x 1080 px"
+    },
+    instructions: [],
+    objectives: [],
+    quickGoal: {
+      concept: "Concevoir le boîtier servo, le couvercle et assembler le tout avec validation cinématique.",
+      actions: [
+        "Modéliser le boîtier avec glissière (+0.4mm) et puits d'inserts (Ø4.6mm)",
+        "Créer le couvercle avec trous Ø3.2mm et chanfreins 45°",
+        "Assembler avec contraintes de Coïncidence et Concentricité",
+        "Tester la rotation du palonnier et traquer les collisions"
+      ]
+    },
+    placeholder: {
+      title: "Boîtier Feetech complet monté avec servo et visserie",
+      caption: "Actionneur mécatronique complet prêt pour la Coupe de France.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "boitier_feetech_assembly.png",
+      svgType: "assembly"
+    }
+  },
+  {
+    id: "step-4-1",
+    moduleIndex: 4,
+    stepNumber: "4.1",
+    title: "Le Défi Mécanique 7Robot & Téléchargement du Pack Feetech",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Pourquoi on fabrique ce boîtier et téléchargement des fichiers 3D",
+    category: "Projet Mécatronique",
+    duration: "10 min",
+    difficulty: "Intermédiaire",
+    summary: "Découvre le vrai problème des servomoteurs Feetech en compétition et la solution adoptée par 7Robot : la glissière avec inserts laiton M3 et couvercle vissé.",
+    quickGoal: {
+      concept: "Comprendre pourquoi on fabrique ce boîtier carré (les vis M3 ne passent pas dans le servo !) et télécharger les fichiers CAO officiels du club.",
+      actions: [
+        "Télécharger le pack ZIP 'fichier a prendre.zip' avec le bouton bleu ci-dessous.",
+        "Extraire les fichiers dans ton dossier de travail (le servo Feetech et son palonnier disque en métal).",
+        "Comprendre le montage 7Robot : le servo va glisser dans un boîtier imprimé en 3D, retenu par un couvercle vissé dans 4 inserts laiton M3."
+      ]
+    },
+    downloadZip: {
+      fileName: "fichier a prendre.zip",
+      filePath: "pieces_solidworks/fichier%20a%20prendre.zip",
+      description: "Pack officiel 7Robot contenant le sous-assemblage du Feetech (fichier a prendre.SLDASM), le servo (Feetech STS2032 20g.SLDPRT) et son palonnier disque en métal (disque_metal_pour_teste.SLDPRT)."
+    },
+    imageSrc: "assets/images/boitier_feetech_assembly.png",
+    placeholder: {
+      title: "Assemblage final du Boîtier Feetech avec Couvercle vissé",
+      caption: "Capture d'écran SolidWorks réelle : le boîtier carré imprimé en 3D, le servo Feetech coulissé et le couvercle vissé.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "boitier_feetech_assembly.png",
+      svgType: "assembly"
+    },
+    instructions: [
+      {
+        title: "1. Le problème des vis M3 sur les servomoteurs Feetech",
+        text: "En robotique de compétition (Coupe de France / Eurobot), le club utilise des servomoteurs intelligents Feetech partout pour les pinces et les bras :",
+        bullets: [
+          "<strong>Le piège :</strong> Les trous situés sur les oreilles de fixation du Feetech sont trop petits (environ 2.2 mm). <strong>Les vis standard M3 utilisées partout dans le club ne passent pas à travers !</strong>",
+          "<strong>Ce qu'il ne faut SURTOUT PAS faire :</strong> Forcer une vis M3 à la main ou repercer les pattes au foret fragilise le plastique du servo, fausse l'alignement et casse la patte au premier choc en match.",
+          "De plus, le plastique ne supporte pas d'être vissé et dévissé 10 fois pendant les phases de test."
+        ]
+      },
+      {
+        title: "2. La solution d'ingénierie 7Robot : La glissière + Inserts",
+        text: "Pour avoir un montage robuste, standardisé et démontable en 30 secondes en tournoi :",
+        bullets: [
+          "<strong>Le Boîtier carré :</strong> Une pièce imprimée en 3D avec deux rainures où le servomoteur <strong>coulisse par ses oreilles</strong>, sans aucune vis dans le servo !",
+          "<strong>4 Inserts filetés en laiton M3 :</strong> Le boîtier a 4 trous de <strong>diamètre Ø 4.60 mm et profondeur ≥ 5.0 mm</strong> où l'on fait fondre des inserts laiton au fer à souder.",
+          "<strong>Le Couvercle vissé :</strong> Une plaque avec 4 trous de <strong>Ø 3.20 mm chanfreinés à 45° sur 1.75 mm</strong> pour vis à tête fraisée FHC M3 qui vient bloquer le tout."
+        ]
+      },
+      {
+        title: "3. La méthode Top-Down (Conception dans l'assemblage)",
+        text: "Au lieu de modéliser le boîtier à l'aveugle dans son coin :",
+        bullets: [
+          "On ouvre d'abord un <strong>Assemblage</strong>, on y pose le Feetech en premier, et on crée le boîtier et le couvercle <strong>directement autour de lui</strong> !",
+          "Ainsi, les dimensions s'adaptent au dixième de millimètre sans avoir à mesurer au pied à coulisse."
+        ]
+      }
+    ],
+    warnings: [
+      {
+        title: "Ne modifie jamais le fichier 3D du servomoteur !",
+        text: "Ne tente pas d'éditer la pièce Feetech pour agrandir ses trous. En ingénierie, on conçoit la pièce d'adaptation pour épouser le composant du commerce, et non l'inverse !"
+      }
+    ],
+    tips: [
+      {
+        title: "Dossier de travail",
+        text: "Dézippe le fichier <code>fichier a prendre.zip</code> dans ton dossier de travail pour que toutes tes futures pièces soient rangées au même endroit."
+      }
+    ]
+  },
+  {
+    id: "step-4-2",
+    moduleIndex: 4,
+    stepNumber: "4.2",
+    title: "Ouvrir l'assemblage et poser le Feetech en premier (f)",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Ancrer le servomoteur sur l'origine comme référence absolue",
+    category: "Assemblage",
+    duration: "8 min",
+    difficulty: "Intermédiaire",
+    summary: "On crée un nouvel assemblage et on insère le sous-assemblage du Feetech en pièce maîtresse fixe (f) alignée sur l'origine.",
+    quickGoal: {
+      concept: "On crée notre fichier d'Assemblage et on ancre le Feetech directement sur l'origine absolue grâce à la coche verte.",
+      actions: [
+        "Créer un nouvel Assemblage (Ctrl + N ➔ Assemblage ➔ OK) et l'enregistrer sous 'Assemblage_Boitier_Feetech.SLDASM'.",
+        "Insérer le fichier 'fichier a prendre.SLDASM' issu du pack ZIP.",
+        "Cliquer sur la coche verte (OK) en haut à gauche pour le verrouiller sur l'origine (symbole Fixe '(f)')."
+      ]
+    },
+    imageSrc: "assets/images/boitier_feetech_assembly.png",
+    placeholder: {
+      title: "Arbre d'assemblage avec Feetech fixé sur l'origine (f)",
+      caption: "Le servomoteur est inséré en premier et verrouillé sur le repère d'assemblage.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "boitier_feetech_assembly.png",
+      svgType: "anchor"
+    },
+    instructions: [
+      {
+        title: "1. Créer le document d'assemblage",
+        text: "Pour réunir plusieurs pièces ensemble :",
+        bullets: [
+          "Presse <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>N</kbd> ➔ choisis <strong>Assemblage</strong> (icône avec deux cubes imbriqués) ➔ clique sur <strong>OK</strong>.",
+          "Enregistre tout de suite avec <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>S</kbd> sous le nom <code>Assemblage_Boitier_Feetech.SLDASM</code> dans ton dossier."
+        ]
+      },
+      {
+        title: "2. Insérer le Feetech avec le clic sur la coche verte",
+        text: "Dans le panneau de gauche :",
+        bullets: [
+          "Clique sur <strong>Parcourir...</strong> et sélectionne <code>fichier a prendre.SLDASM</code> extrait du ZIP.",
+          "<strong>Le réflexe d'expert :</strong> Ne clique PAS dans la zone 3D ! Clique directement sur la <strong>coche verte (OK)</strong> tout en haut à gauche.",
+          "SolidWorks fait coïncider l'origine du Feetech avec l'origine de l'assemblage.",
+          "Regarde l'arbre à gauche : le nom est précédé du symbole <strong><code>(f)</code></strong> (Fixe). Le servo est ancré, c'est notre référence stable !"
+        ]
+      }
+    ],
+    warnings: [
+      {
+        title: "Ne libère pas la première pièce",
+        text: "Si la première pièce flotte librement (symbole '-'), tout ton mécanisme bougera dans le vide quand tu essaieras de manipuler les pièces. Conserve toujours le statut Fixe <code>(f)</code> !"
+      }
+    ],
+    tips: [
+      {
+        title: "Vue isométrique instantanée",
+        text: "Appuie sur <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>7</kbd> pour afficher ton servomoteur en perspective isométrique."
+      }
+    ]
+  },
+  {
+    id: "step-4-3",
+    moduleIndex: 4,
+    stepNumber: "4.3",
+    title: "Créer le Boîtier dans l'assemblage (Glissière & Inserts Ø4.6mm)",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "L'outil 'Nouvelle pièce' en contexte pour dessiner autour du servo",
+    category: "Conception en contexte",
+    duration: "18 min",
+    difficulty: "Avancé",
+    summary: "Utilise la commande 'Nouvelle pièce' directement dans l'assemblage pour modéliser le boîtier carré 44x44 mm, ses rainures de glissière et les 4 puits d'inserts laiton Ø4.6 mm x prof. ≥5 mm.",
+    quickGoal: {
+      concept: "On utilise la fonction 'Nouvelle pièce' pour dessiner le boîtier carré directement autour du servomoteur Feetech en transparence.",
+      actions: [
+        "Cliquer sur la flèche sous 'Insérer des composants' ➔ 'Nouvelle pièce' ➔ cliquer sur le Plan de Dessus.",
+        "Dessiner le carré de 44x44 mm et extruder sur 28 mm de haut.",
+        "Évider la chambre avec +0.4 mm de jeu FDM pour que les oreilles coulissent sans coincer.",
+        "Percer les 4 trous d'inserts laiton aux coins : diamètre Ø 4.60 mm et profondeur 5.5 mm."
+      ]
+    },
+    imageSrc: "assets/images/mod4_boitier_inserts_schema.svg",
+    placeholder: {
+      title: "Plan technique du Boîtier à glissière et inserts",
+      caption: "Vue en coupe de la liaison vissée M3 et vue éclatée montrant le coulissement du Feetech dans le boîtier.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "mod4_boitier_inserts_schema.svg",
+      svgType: "drill"
+    },
+    instructions: [
+      {
+        title: "1. Lancer l'outil 'Nouvelle pièce' en contexte",
+        text: "Dans ton assemblage :",
+        bullets: [
+          "Dans l'onglet <strong>Assemblage</strong>, repère le bouton <em>Insérer des composants</em>.",
+          "Clique sur la <strong>petite flèche noire juste en dessous</strong> ➔ clique sur <strong>Nouvelle pièce</strong>.",
+          "Ton curseur affiche une petite coche verte : clique sur le <strong>Plan de Dessus de l'assemblage</strong>.",
+          "Regarde l'écran : le Feetech devient <strong>semi-transparent</strong> et une icône violette apparaît en haut à droite. Tu es en mode <strong>Édition du composant</strong> !"
+        ]
+      },
+      {
+        title: "2. Le corps carré extérieur (44 x 44 mm)",
+        text: "Dessinons le bloc brut :",
+        bullets: [
+          "Presse <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>8</kbd> (vue normale).",
+          "Trace un <strong>Rectangle par son centre</strong> sur l'origine de <code>44.0 mm x 44.0 mm</code>.",
+          "Va dans Fonctions ➔ <strong>Bossage/Base extrudé</strong> ➔ donne une hauteur de <code>28.0 mm</code> vers le haut ➔ valide."
+        ]
+      },
+      {
+        title: "3. La cavité de glissière pour les oreilles du Feetech",
+        text: "Sur la face supérieure du bloc :",
+        bullets: [
+          "Ouvre une nouvelle esquisse sur la face du dessus.",
+          "Comme tu vois le Feetech en transparence à travers la pièce, utilise <strong>Décaler les entités</strong> avec <strong><code>0.4 mm</code></strong> vers l'extérieur pour prévoir le jeu de glissement de l'imprimante 3D.",
+          "Dessine également les rainures latérales correspondant au passage des oreilles.",
+          "Fonctions ➔ <strong>Enlèvement de matière extrudé</strong> ➔ profondeur de <code>25.0 mm</code> (ce qui laisse un fond solide de 3 mm) ➔ valide."
+        ]
+      },
+      {
+        title: "4. Les 4 logements d'inserts laiton M3 (Cote stricte Ø 4.60 mm)",
+        text: "Pour que les inserts chauffés au fer à souder tiennent parfaitement :",
+        bullets: [
+          "Sur la face supérieure, ouvre une esquisse.",
+          "Trace <strong>4 cercles</strong> aux 4 coins (carré centré de <code>36.0 mm x 36.0 mm</code>).",
+          "Mets une relation d'<strong>Égalité</strong> entre les 4 cercles et cote le diamètre à <strong>exactement <code>4.60 mm</code></strong>.",
+          "Fonctions ➔ <strong>Enlèvement de matière extrudé</strong> ➔ profondeur borgne de <strong><code>5.5 mm</code></strong> (au moins 5.0 mm) ➔ valide."
+        ]
+      },
+      {
+        title: "5. Quitter l'édition et sauvegarder la pièce",
+        text: "Pour terminer le boîtier :",
+        bullets: [
+          "Clique sur l'icône de sortie en haut à droite de la zone 3D (ou reclique sur <em>Éditer le composant</em>).",
+          "Dans l'arbre à gauche, fais un clic droit sur la nouvelle pièce ➔ <strong>Enregistrer la pièce (dans un fichier externe)</strong> ➔ nomme-la <code>Boitier_Feetech.SLDPRT</code>."
+        ]
+      }
+    ],
+    warnings: [
+      {
+        title: "Pourquoi exactement Ø 4.6 mm et prof. ≥ 5.0 mm ?",
+        text: "L'insert laiton M3 fait environ 4.3 mm extérieur. À 4.6 mm, il rentre droit à froid sans forcer. Dès qu'on le chauffe au fer à 220°C, le plastique fond dans ses crans. La profondeur de 5.5 mm évite que la vis M3 ne vienne taper au fond et arracher l'insert !"
+      }
+    ],
+    tips: [
+      {
+        title: "Bascule rapide dans la pièce",
+        text: "Pour rééditer ton boîtier à tout moment dans l'assemblage, fais un clic droit dessus dans la vue 3D ➔ clique sur l'icône <em>Éditer la pièce</em>."
+      }
+    ]
+  },
+  {
+    id: "step-4-4",
+    moduleIndex: 4,
+    stepNumber: "4.4",
+    title: "Créer le Couvercle fraisé sur le boîtier (Vis Ø3.2mm chanfrein 45°)",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Deuxième pièce en contexte : trous de vis M3 et fraisage pour têtes affleurantes",
+    category: "Conception en contexte",
+    duration: "15 min",
+    difficulty: "Avancé",
+    summary: "Clique sur la flèche sous 'Insérer des composants' ➔ 'Nouvelle pièce' et clique directement sur la face supérieure du boîtier pour concevoir le couvercle avec trous Ø3.2 mm et chanfreins 45° x 1.75 mm.",
+    quickGoal: {
+      concept: "On modélise le couvercle directement sur la face du boîtier, avec les trous de passage pour les vis M3 et leurs chanfreins pour noyer les têtes coniques.",
+      actions: [
+        "Flèche sous 'Insérer des composants' ➔ 'Nouvelle pièce' ➔ cliquer sur la face supérieure du boîtier.",
+        "Convertir les arêtes extérieures pour reprendre le contour carré de 44x44 mm, puis extruder 3.5 mm vers le haut.",
+        "Percer le trou central de Ø 16 mm pour laisser passer l'arbre rotatif sans frottement.",
+        "Percer 4 trous de Ø 3.20 mm alignés sur les inserts et ajouter le chanfrein 45° x 1.75 mm."
+      ]
+    },
+    imageSrc: "assets/images/mod4_boitier_inserts_schema.svg",
+    placeholder: {
+      title: "Coupe de la liaison vissée : Trou Ø3.2mm et Chanfrein 45° x 1.75mm",
+      caption: "Gros plan sur le fraisage conique garantissant que la vis FHC M3 affleure parfaitement sans dépasser.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "mod4_boitier_inserts_schema.svg",
+      svgType: "chamfer"
+    },
+    instructions: [
+      {
+        title: "1. Poser le couvercle sur le sommet du boîtier",
+        text: "Toujours dans l'assemblage :",
+        bullets: [
+          "Clique sur la flèche sous <em>Insérer des composants</em> ➔ choisis <strong>Nouvelle pièce</strong>.",
+          "Clique directement sur la <strong>face supérieure de ton boîtier</strong> : l'esquisse est immédiatement posée au bon endroit !",
+          "Clique sur <strong>Convertir les entités</strong> et sélectionne les 4 arêtes extérieures du boîtier : le carré de 44x44 mm se dessine tout seul !",
+          "Fonctions ➔ <strong>Bossage/Base extrudé</strong> ➔ épaisseur de <code>3.5 mm</code> vers le haut ➔ valide."
+        ]
+      },
+      {
+        title: "2. Le trou central pour le palonnier rotatif",
+        text: "Le disque en métal tourne au centre :",
+        bullets: [
+          "Sur la face supérieure du couvercle, ouvre une esquisse.",
+          "Trace un cercle centré sur l'axe du Feetech de diamètre <strong><code>16.0 mm</code></strong>.",
+          "Fonctions ➔ <strong>Enlèvement de matière extrudé</strong> ➔ <em>À travers tout</em> ➔ valide."
+        ]
+      },
+      {
+        title: "3. Les 4 trous de vis M3 (Cote stricte Ø 3.20 mm)",
+        text: "Ces trous doivent être pile en face des inserts du boîtier :",
+        bullets: [
+          "Ouvre une esquisse sur la face du couvercle.",
+          "Trace 4 cercles en appliquant une relation de <strong>Concentricité</strong> avec les trous d'inserts du boîtier situés juste en dessous.",
+          "Mets la relation <strong>Égalité</strong> sur les 4 cercles et cote le diamètre à <strong>exactement <code>3.20 mm</code></strong> (taille standard pour laisser passer une vis M3 sans coincer).",
+          "Fonctions ➔ <strong>Enlèvement de matière extrudé</strong> ➔ <em>À travers tout</em> ➔ valide."
+        ]
+      },
+      {
+        title: "4. Les 4 chanfreins de fraisage (45° x 1.75 mm)",
+        text: "Pour que les têtes de vis coniques ne dépassent pas :",
+        bullets: [
+          "Dans l'onglet Fonctions, clique sur la flèche sous <em>Congé</em> ➔ choisis <strong>Chanfrein</strong>.",
+          "Sélectionne les 4 arêtes circulaires du dessus de tes trous de Ø 3.2 mm.",
+          "Règle : Distance = <strong><code>1.75 mm</code></strong> et Angle = <strong><code>45°</code></strong> ➔ valide.",
+          "Quitte le mode édition et enregistre en externe sous <code>Couvercle_Feetech.SLDPRT</code>."
+        ]
+      }
+    ],
+    warnings: [
+      {
+        title: "Pourquoi 1.75 mm de chanfrein ?",
+        text: "Une tête de vis FHC M3 fait environ 6 mm de diamètre au sommet. Avec un chanfrein de 1.75 mm à 45°, le cône s'évase jusqu'à 6.7 mm : la tête de vis s'enfonce très légèrement sous la surface (0.2 mm) pour ne jamais accrocher les autres pièces du robot !"
+      }
+    ],
+    tips: [
+      {
+        title: "L'associativité magique",
+        text: "Si tu élargis ton boîtier de 44 à 48 mm plus tard, ton couvercle et ses trous de vis s'adapteront automatiquement sans que tu n'aies rien à redessiner !"
+      }
+    ]
+  },
+  {
+    id: "step-4-5",
+    moduleIndex: 4,
+    stepNumber: "4.5",
+    title: "Test cinématique de rotation et collisions",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Vérifier à la souris que le palonnier tourne librement et traquer les collisions",
+    category: "Contrôle qualité",
+    duration: "10 min",
+    difficulty: "Avancé",
+    summary: "Active le sous-assemblage en mode Flexible, fais tourner le palonnier métallique à la souris et lance la détection d'interférences pour valider le montage.",
+    quickGoal: {
+      concept: "On passe le servo en mode Flexible pour tester la rotation libre du disque en métal et on utilise l'outil de collision de SolidWorks pour valider la pièce.",
+      actions: [
+        "Faire un clic droit sur le Feetech dans l'arbre ➔ Propriétés ➔ cocher 'Flexible'.",
+        "Attraper le disque en métal à la souris et le faire tourner à 360° sans bloquer.",
+        "Onglet 'Évaluer' ➔ 'Détection d'interférences' ➔ 'Calculer' pour vérifier que rien ne frotte."
+      ]
+    },
+    imageSrc: "assets/images/kinematics_robot_arm.gif",
+    placeholder: {
+      title: "Animation GIF : Rotation cinématique du palonnier",
+      caption: "Vérification de la rotation libre du disque métallique sans aucune collision sur le couvercle.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "kinematics_robot_arm.gif",
+      svgType: "kinematics"
+    },
+    instructions: [
+      {
+        title: "1. Activer le sous-assemblage en mode 'Flexible'",
+        text: "Par défaut, SolidWorks fige les mouvements internes d'un sous-assemblage :",
+        bullets: [
+          "Fais un clic droit sur <code>fichier a prendre<1></code> dans l'arbre à gauche.",
+          "Clique sur <strong>Propriétés du composant</strong>.",
+          "En bas à droite, coche <strong>Résoudre comme : Flexible</strong> ➔ valide par OK.",
+          "Désormais, le palonnier disque en métal peut tourner librement autour de l'axe !"
+        ]
+      },
+      {
+        title: "2. Le test de rotation à la souris",
+        text: "Prends ta souris :",
+        bullets: [
+          "Fais un clic gauche maintenu sur le disque métallique (`disque_metal_pour_teste.SLDPRT`) et bouge la souris : le disque tourne à 360° en direct !",
+          "Vérifie qu'il y a un petit espace visible (au moins <code>0.5 mm</code>) entre le dessous du disque et le dessus du couvercle pour éviter tout frottement plastique."
+        ]
+      },
+      {
+        title: "3. Détection d'interférences (Le juge de paix)",
+        text: "Avant de lancer l'impression 3D au club :",
+        bullets: [
+          "Va dans l'onglet <strong>Évaluer</strong> tout en haut.",
+          "Clique sur <strong>Détection d'interférences</strong> ➔ clique sur <strong>Calculer</strong>.",
+          "Si deux pièces se rentrent dedans, le volume en conflit s'allume en rouge vif !",
+          "Si le résultat affiche <strong>'Aucune interférence'</strong>, ta conception est 100% validée !"
+        ]
+      }
+    ],
+    warnings: [
+      {
+        title: "Attention aux tolérances d'impression 3D",
+        text: "Une imprimante 3D dépose du fil plastique chaud qui s'écrase légèrement (+0.15 mm). Conserve toujours entre 0.3 et 0.5 mm de jeu sur la glissière pour que le servo glisse comme dans du beurre !"
+      }
+    ],
+    tips: [
+      {
+        title: "La Dynamique physique",
+        text: "Dans le menu <em>Déplacer le composant</em>, tu peux cocher <strong>Dynamique physique</strong> : SolidWorks arrêtera le disque automatiquement s'il heurte un obstacle !"
+      }
+    ]
+  },
+  {
+    id: "step-4-6",
+    moduleIndex: 4,
+    stepNumber: "4.6",
+    title: "Fiche d'atelier (Inserts à 220°C & Vis M3) & Fin de formation",
+    moduleTitle: "Module 4 : Le projet réel : Boîtier Feetech & Assemblage",
+    subtitle: "Les conseils pratiques de fabrication FDM et validation de la certification",
+    category: "Atelier & Certification",
+    duration: "8 min",
+    difficulty: "Synthèse",
+    summary: "Fiche pratique d'atelier pour souder les inserts laiton M3 au fer, choisir la visserie FHC et célébrer la validation de la formation 7Robot !",
+    quickGoal: {
+      concept: "Toutes les astuces concrètes de l'atelier pour insérer les inserts laiton au fer à souder à 220°C, visser le couvercle et valider ta formation.",
+      actions: [
+        "Régler le fer à souder entre 220°C et 230°C pour enfoncer les inserts M3 bien droit sans brûler le plastique.",
+        "Choisir 4 vis FHC M3 de 8 ou 10 mm pour un vissage parfaitement affleurant.",
+        "Vérifier la checklist finale d'homologation interne du club 7Robot."
+      ]
+    },
+    imageSrc: "assets/images/certification_7robot_cad.svg",
+    placeholder: {
+      title: "Attestation officielle : 7Robot CAD Certified",
+      caption: "Badge officiel attestant de ta maîtrise de la chaîne de conception sous SolidWorks.",
+      recommendedDimensions: "1920 x 1080 px",
+      imageFileName: "certification_7robot_cad.svg",
+      svgType: "trophy"
+    },
+    instructions: [
+      {
+        title: "1. Comment poser les inserts laiton M3 au fer à souder",
+        text: "Pour transformer tes trous imprimés en solides filetages métalliques :",
+        bullets: [
+          "🌡️ <strong>Température :</strong> Règle la station de soudage de l'atelier sur <strong>220°C - 230°C</strong> (température idéale pour fondre localement le PLA sans cramer le plastique).",
+          "📐 <strong>Mise en place :</strong> Pose l'insert laiton M3 bien vertical sur l'entrée du trou de Ø 4.60 mm.",
+          "🔥 <strong>Chauffe :</strong> Pose la panne plate du fer sur l'insert avec une légère pression vers le bas : en 3 secondes, le plastique ramollit et l'insert s'enfonce tout seul.",
+          "🛑 <strong>Arrêt :</strong> Retire le fer dès que l'insert affleure à environ 0.2 mm sous la surface.",
+          "❄️ <strong>Refroidissement :</strong> Plaque immédiatement un réglet métallique froid dessus pendant 5 secondes pour qu'il refroidisse parfaitement plat !"
+        ]
+      },
+      {
+        title: "2. Choix de la visserie",
+        text: "Pour fermer le couvercle :",
+        bullets: [
+          "🔩 <strong>Type de vis :</strong> 4x Vis FHC M3 (tête fraisée 90°, clé Allen 2 mm).",
+          "📏 <strong>Longueur :</strong> <code>M3 x 8 mm</code> ou <code>M3 x 10 mm</code> (3.5 mm de couvercle + 4 mm d'insert fileté + 1 mm de marge au fond).",
+          "✨ <strong>Résultat :</strong> Les têtes de vis sont 100% affleurantes grâce au chanfrein de 45° x 1.75 mm !"
+        ]
+      },
+      {
+        title: "3. La checklist finale d'homologation 7Robot",
+        text: "Avant d'imprimer une pièce au local :",
+        bullets: [
+          "☑️ Toutes les esquisses sont noires (Totalement contraintes).",
+          "☑️ Le boîtier a bien le symbole Fixe (f) dans l'arbre.",
+          "☑️ Trous d'inserts à Ø 4.60 mm prof. ≥ 5.0 mm et trous de couvercle à Ø 3.20 mm chanfreinés à 45°.",
+          "☑️ Glissière avec 0.4 mm de jeu FDM.",
+          "☑️ Zéro collision dans la détection d'interférences."
+        ]
+      },
+      {
+        title: "4. Message de l'équipe 7Robot aux nouveaux concepteurs",
+        text: "<div class='my-4 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-orange-500/25 via-amber-500/20 to-orange-500/10 border-2 border-[#ff7d00] shadow-lg glow-7robot text-center'><div class='inline-flex p-3 bg-[#ff7d00] text-white rounded-2xl shadow-md mb-2'><svg class='w-7 h-7' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg></div><h3 class='text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2 tracking-tight'>⚔️ Tu es maintenant prêt à modéliser des actionneurs pour les robots de combat !!!</h3><p class='text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed'>Tu possèdes désormais toutes les clés techniques nécessaires : esquisses contraintes, fonctions volumiques avancées, conception en contexte dans l'assemblage, tolérances d'inserts FDM et validation cinématique pour la Coupe de France et Eurobot.</p></div>"
+      }
+    ],
+    warnings: [
+      {
+        title: "Ne serre pas les vis comme un sauvage !",
+        text: "Les inserts tiennent très bien, mais si tu serres trop fort, tu risques d'arracher le plastique chaud. Serre fermement au contact, sans forcer avec une grande rallonge !"
+      }
+    ],
+    tips: [
+      {
+        title: "Prêt pour la Coupe de France et les combats de robots !",
+        text: "Tu es maintenant prêt à modéliser des actionneurs pour les robots de combat !!! Rendez-vous au local 7Robot pour lancer l'impression 3D de ton boîtier et intégrer l'équipe de match !"
+      }
+    ]
   }
 ];
-
 
 // Assurer la rétrocompatibilité des objectifs pour toutes les étapes
 COURSE_STEPS.forEach(step => {
