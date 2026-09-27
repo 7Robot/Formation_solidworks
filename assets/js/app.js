@@ -430,8 +430,9 @@
     const container = document.getElementById('step-content-area');
     if (!container) return;
 
-    const step = window.COURSE_STEPS.find(s => s.id === STATE.currentStepId);
-    if (!step) return;
+    try {
+      const step = window.COURSE_STEPS.find(s => s.id === STATE.currentStepId);
+      if (!step) return;
 
     const currentIndex = window.COURSE_STEPS.findIndex(s => s.id === STATE.currentStepId);
     const totalSteps = window.COURSE_STEPS.length;
@@ -552,23 +553,25 @@
           </div>
         ` : ''}
 
-        <!-- Objectifs pédagogiques -->
-        <div class="mb-8 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center mb-3">
-            <svg class="w-4 h-4 text-[#ff7d00] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            Objectifs de cette étape
-          </h3>
-          <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-            ${step.objectives.map(obj => `
-              <li class="flex items-start space-x-2">
-                <span class="text-emerald-500 font-bold shrink-0 mt-0.5">✔</span>
-                <span>${obj}</span>
-              </li>
-            `).join('')}
-          </ul>
-        </div>
+        <!-- Objectifs pédagogiques optionnels (affichés uniquement si définis et pas de doublon avec quickGoal) -->
+        ${step.objectives && step.objectives.length > 0 && !step.quickGoal ? `
+          <div class="mb-8 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center mb-3">
+              <svg class="w-4 h-4 text-[#ff7d00] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Objectifs de cette étape
+            </h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+              ${step.objectives.map(obj => `
+                <li class="flex items-start space-x-2">
+                  <span class="text-emerald-500 font-bold shrink-0 mt-0.5">✔</span>
+                  <span>${obj}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : ''}
 
         <!-- Instructions pas à pas -->
         <div class="space-y-8 mb-10">
@@ -713,6 +716,15 @@
     `;
 
     container.innerHTML = html;
+    } catch (err) {
+      console.error("Erreur lors de l'affichage de l'étape :", err);
+      container.innerHTML = `
+        <div class="max-w-2xl mx-auto p-6 rounded-2xl bg-red-500/10 border-2 border-red-500/40 text-red-700 dark:text-red-300 my-10">
+          <h2 class="font-bold text-lg mb-2">⚠️ Une erreur est survenue lors de l'affichage</h2>
+          <p class="text-sm font-mono">${err.message}</p>
+        </div>
+      `;
+    }
   }
 
   // --------------------------------------------------------------------------

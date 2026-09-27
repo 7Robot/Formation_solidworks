@@ -1218,6 +1218,13 @@ const COURSE_STEPS = [
   }
 ];
 
+// Assurer la rétrocompatibilité des objectifs pour toutes les étapes
+COURSE_STEPS.forEach(step => {
+  if (!step.objectives && step.quickGoal && step.quickGoal.actions) {
+    step.objectives = step.quickGoal.actions;
+  }
+});
+
 // Rendre accessible globalement
 window.COURSE_MODULES = COURSE_MODULES;
 window.COURSE_STEPS = COURSE_STEPS;
