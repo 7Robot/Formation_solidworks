@@ -694,6 +694,7 @@ const COURSE_STEPS = [
 
   // --------------------------------------------------------------------------
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
   // MODULE 3 : LES OUTILS DE MODÉLISATION AVANCÉS
   // --------------------------------------------------------------------------
   {
@@ -733,10 +734,10 @@ const COURSE_STEPS = [
     ],
     expectedResult: {
       badge: "RÉSULTAT DU MODULE 3",
-      title: "Aperçu des 4 pièces finales",
-      description: "Poulie de transmission, moyeu à 6 perçages, passage de câble tubulaire et pince de robot symétrique.",
-      imageSrc: "",
-      placeholderText: "Illustration : Aperçu des 4 pièces finales (Poulie, Moyeu 6 trous, Passage de câble, Pince symétrique)",
+      title: "Aperçu des 4 pièces finales (Poulie, Moyeu 6 trous, Passage de câble, Pince)",
+      description: "Les 4 pièces mécaniques complètes modélisées au cours des 4 exercices de modélisation avancée.",
+      imageSrc: "assets/images/mod3_apercu_4_pieces.png",
+      placeholderText: "Illustration : Aperçu des 4 pièces finales (Poulie, Moyeu 6 trous, Passage de câble, Pince)",
       recommendedDimensions: "1920 x 1080 px"
     },
     instructions: [],
@@ -744,9 +745,9 @@ const COURSE_STEPS = [
     quickGoal: {
       concept: "Découvrir des outils 3D puissants qui font gagner un temps fou.",
       actions: [
-        "L'outil Révolution (poulie)",
-        "La Répétition circulaire (moyeu)",
-        "Le Balayage (passage de câble)",
+        "L'outil Révolution (poulie de transmission)",
+        "La Répétition circulaire (moyeu à 6 trous)",
+        "Le Balayage (passage de câble tubulaire)",
         "La Symétrie (pince de préhension)"
       ]
     },
@@ -755,6 +756,7 @@ const COURSE_STEPS = [
       caption: "Poulie de transmission, moyeu percé, passage de câble et pince symétrique.",
       recommendedDimensions: "1920 x 1080 px",
       imageFileName: "mod3_apercu_4_pieces.png",
+      imageSrc: "assets/images/mod3_apercu_4_pieces.png",
       svgType: "assembly"
     }
   },
@@ -773,6 +775,7 @@ const COURSE_STEPS = [
     duration: "8 min",
     difficulty: "Débutant",
     summary: "Créer une pièce ronde en dessinant uniquement son profil.",
+    imageSrc: "assets/img_solidworks/3.1.6.png",
     quickGoal: {
       concept: "Créer une pièce ronde en dessinant uniquement son profil.",
       actions: [
@@ -789,26 +792,26 @@ const COURSE_STEPS = [
         text: "Crée une nouvelle Pièce. Choisis le Plan de face et ouvre une Esquisse.",
         bullets: [
           "Presse <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>N</kbd> ➔ sélectionne <strong>Pièce</strong> ➔ clique sur <strong>OK</strong>.",
-          "Dans l'arbre FeatureManager à gauche, clique sur <strong>Plan de face</strong>, puis clique sur l'outil <strong>Esquisse</strong> (<kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>8</kbd> pour vue normale).",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Sélection du Plan de face et ouverture de l'esquisse</div>"
+          "Dans l'arbre FeatureManager à gauche, clique sur <strong>Plan de face</strong>, puis clique sur l'outil <strong>Esquisse</strong> (<kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>8</kbd> pour te mettre perpendiculaire au plan).",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.1.1.png', 'Sélection du Plan de face')"><img src="assets/img_solidworks/3.1.1.png" alt="Sélection du Plan de face" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Sélection du Plan de face et ouverture de l'esquisse</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
         title: "2. L'axe",
         text: "Trace une Ligne de construction horizontale partant de l'origine (elle servira d'axe de rotation).",
         bullets: [
-          "Prends l'outil <strong>Ligne de construction</strong> (clique sur la petite flèche à côté de l'outil Ligne).",
-          "Trace une ligne horizontale partant exactement de l'origine rouge (0,0).",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Ligne de construction horizontale partant de l'origine</div>"
+          "Prends l'outil <strong>Ligne de construction</strong> (clique sur la petite flèche noire à côté de l'icône Ligne).",
+          "Trace une ligne horizontale en partant exactement de l'origine rouge (0,0).",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.1.2.png', 'Ligne de construction horizontale')"><img src="assets/img_solidworks/3.1.2.png" alt="Ligne de construction horizontale" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Ligne de construction horizontale tracée depuis l'origine</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
         title: "3. Le profil",
         text: "Au-dessus de l'axe, dessine la moitié du profil d'une poulie (un contour fermé avec le creux pour la courroie).",
         bullets: [
-          "Au-dessus de l'axe, dessine la moitié du profil d'une poulie avec l'outil Ligne (un contour fermé avec le creux pour la courroie).",
-          "Assure-toi que les extrémités du profil touchent bien la ligne de construction pour former une zone fermée.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Demi-profil fermé de la poulie au-dessus de l'axe</div>"
+          "Au-dessus de l'axe, dessine la moitié du profil d'une poulie avec l'outil Ligne classique (un contour fermé avec le creux en demi-cercle pour la courroie).",
+          "Assure-toi que les extrémités du profil touchent bien la ligne de construction pour former une zone fermée grisée.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.1.3.png', 'Demi-profil fermé de la poulie')"><img src="assets/img_solidworks/3.1.3.png" alt="Demi-profil fermé de la poulie" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Demi-profil fermé de la poulie avec la gorge au-dessus de l'axe</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
@@ -816,17 +819,17 @@ const COURSE_STEPS = [
         text: "Clique sur un trait horizontal du profil, puis sur la ligne de construction. Déplace la souris en dessous de l'axe : SolidWorks propose automatiquement de coter le diamètre ! Répète pour les autres diamètres.",
         bullets: [
           "Clique sur un trait horizontal du profil, puis sur la ligne de construction.",
-          "Déplace la souris en dessous de l'axe : SolidWorks propose automatiquement de coter le diamètre ! Répète pour les autres diamètres jusqu'à ce que tout soit noir.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Cotation du diamètre en déplaçant la souris sous l'axe</div>"
+          "Déplace la souris en dessous de l'axe : SolidWorks propose automatiquement de coter le diamètre réel ! Applique les cotes (30 mm de largeur, 30 mm de hauteur, rayon R10 mm) jusqu'à ce que tout soit noir.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.1.4.png', 'Cotation intelligente du profil')"><img src="assets/img_solidworks/3.1.4.png" alt="Cotation intelligente du profil" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Cotation intelligente : 30 mm, 30 mm et rayon R10 mm</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
         title: "5. Révolution",
         text: "Quitte l'esquisse. Va dans Fonctions > Bossage/Base avec révolution. Sélectionne la ligne de construction comme axe. Valide à 360°.",
         bullets: [
-          "Quitte l'esquisse. Va dans <strong>Fonctions</strong> > <strong>Bossage/Base avec révolution</strong>.",
-          "Sélectionne la ligne de construction comme axe. Valide à <strong>360°</strong> avec la coche verte.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Bossage/Base avec révolution à 360° et poulie 3D obtenue</div>"
+          "Quitte l'esquisse ou rends-toi dans l'onglet <strong>Fonctions</strong> > <strong>Bossage/Base avec révolution</strong>.",
+          "Sélectionne la ligne de construction comme <strong>Axe de révolution</strong> (Line1). Vérifie l'angle à <strong>360.00deg</strong> et valide avec la coche verte.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.1.5.png', 'Révolution volumique 360°')"><img src="assets/img_solidworks/3.1.5.png" alt="Révolution volumique 360°" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Paramétrage du Bossage/Base avec révolution à 360°</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       }
     ],
@@ -846,7 +849,8 @@ const COURSE_STEPS = [
       title: "Poulie de transmission en 3D",
       caption: "Pièce mécanique obtenue par révolution à 360°.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_poulie_3d.png",
+      imageFileName: "3.1.6.png",
+      imageSrc: "assets/img_solidworks/3.1.6.png",
       svgType: "revolution"
     }
   },
@@ -865,6 +869,7 @@ const COURSE_STEPS = [
     duration: "8 min",
     difficulty: "Débutant",
     summary: "Percer un trou et le dupliquer en couronne régulière autour d'un axe.",
+    imageSrc: "assets/img_solidworks/3.2.6.png",
     quickGoal: {
       concept: "Percer un trou et le dupliquer en couronne régulière autour d'un axe.",
       actions: [
@@ -877,12 +882,12 @@ const COURSE_STEPS = [
     },
     instructions: [
       {
-        title: "1. Nouveau fichier",
+        title: "1. Nouveau fichier & Cylindre de base",
         text: "Crée une nouvelle Pièce. (Astuce : modélise un cylindre basique de 50mm de diamètre et 10mm d'épaisseur pour servir de base à cet exercice).",
         bullets: [
           "Presse <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>N</kbd> ➔ Pièce ➔ OK.",
-          "Astuce : modélise un cylindre basique de 50mm de diamètre et 10mm d'épaisseur pour servir de base à cet exercice (Plan de dessus ➔ Cercle Ø50 mm ➔ Bossage extrudé 10 mm).",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Cylindre de base de 50mm de diamètre et 10mm d'épaisseur</div>"
+          "Sur le Plan de dessus, trace un cercle de Ø50 mm à l'origine et fais un Bossage extrudé de 10 mm.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.2.1.png', 'Cylindre de base')"><img src="assets/img_solidworks/3.2.1.png" alt="Cylindre de base" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Cylindre de base de 50 mm de diamètre et 10 mm d'épaisseur</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
@@ -890,8 +895,8 @@ const COURSE_STEPS = [
         text: "Sur la face supérieure du cylindre, ouvre une esquisse. Dessine un petit cercle excentré (cote-le verticalement par rapport à l'origine).",
         bullets: [
           "Sur la face supérieure du cylindre, ouvre une esquisse (<kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>8</kbd>).",
-          "Dessine un petit cercle excentré (cote-le verticalement par rapport à l'origine).",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Esquisse du cercle de perçage coté sur la face supérieure</div>"
+          "Dessine un petit cercle excentré de Ø6.00 mm et cote son centre à 18.00 mm verticalement par rapport à l'origine.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.2.2.png', 'Esquisse du perçage')"><img src="assets/img_solidworks/3.2.2.png" alt="Esquisse du perçage" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Esquisse du trou de perçage Ø6 mm coté à 18 mm</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
@@ -900,26 +905,19 @@ const COURSE_STEPS = [
         bullets: [
           "Dans l'onglet Fonctions, clique sur <strong>Enlèvement de matière extrudé</strong>.",
           "Choisis la condition <strong>'À travers tout'</strong> et valide avec la coche verte.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Enlèvement de matière extrudé 'À travers tout'</div>"
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.2.3.png', 'Enlèvement de matière')"><img src="assets/img_solidworks/3.2.3.png" alt="Enlèvement de matière" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Enlèvement de matière extrudé 'À travers tout'</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
-        title: "4. Répétition",
-        text: "Dans l'onglet Fonctions, clique sur la flèche sous Répétition linéaire > Répétition circulaire.",
+        title: "4. Répétition circulaire & Paramétrage",
+        text: "Dans l'onglet Fonctions, clique sur la flèche sous Répétition linéaire > Répétition circulaire. Renseigne la direction, l'angle, le nombre et la fonction à répéter.",
         bullets: [
           "Dans l'onglet <strong>Fonctions</strong>, clique sur la flèche sous Répétition linéaire > <strong>Répétition circulaire</strong>.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Sélection de l'outil Répétition circulaire</div>"
-        ]
-      },
-      {
-        title: "5. Paramétrage",
-        text: "Configure la direction, l'angle, le nombre et la fonction à répéter.",
-        bullets: [
-          "<strong>Direction 1 :</strong> Clique sur l'arête circulaire du cylindre extérieur.",
-          "<strong>Angle :</strong> 360° avec 'Espacement constant' coché.",
+          "<strong>Direction 1 :</strong> Clique sur l'arête circulaire du cylindre extérieur (Edge<1>).",
+          "<strong>Angle :</strong> 360° avec <strong>'Espacement constant' (Equal spacing)</strong> coché.",
           "<strong>Nombre :</strong> 6 occurrences.",
-          "<strong>Fonctions à répéter :</strong> Sélectionne le trou que tu viens de percer. Valide.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Paramétrage à 6 occurrences avec espacement constant et résultat final</div>"
+          "<strong>Fonctions à répéter :</strong> Sélectionne Cut-Extrude1 et valide.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.2.4.png', 'Répétition circulaire')"><img src="assets/img_solidworks/3.2.4.png" alt="Répétition circulaire" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Configuration de la répétition circulaire : 6 trous à 360°</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       }
     ],
@@ -939,7 +937,8 @@ const COURSE_STEPS = [
       title: "Moyeu à 6 perçages réguliers",
       caption: "Répétition circulaire à espacement constant sur 360°.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_moyeu_trous.png",
+      imageFileName: "3.2.6.png",
+      imageSrc: "assets/img_solidworks/3.2.6.png",
       svgType: "pattern"
     }
   },
@@ -958,6 +957,7 @@ const COURSE_STEPS = [
     duration: "10 min",
     difficulty: "Intermédiaire",
     summary: "Faire glisser une forme le long d'une courbe.",
+    imageSrc: "assets/img_solidworks/3.3.5.png",
     quickGoal: {
       concept: "Faire glisser une forme le long d'une courbe.",
       actions: [
@@ -969,12 +969,12 @@ const COURSE_STEPS = [
     },
     instructions: [
       {
-        title: "1. Nouveau fichier",
+        title: "1. Nouveau fichier & Deux plans perpendiculaires",
         text: "Crée une nouvelle Pièce. Le balayage a besoin de DEUX esquisses séparées sur deux plans perpendiculaires.",
         bullets: [
           "Presse <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>N</kbd> ➔ Pièce ➔ OK.",
           "Le balayage a besoin de <strong>DEUX esquisses séparées</strong> sur deux plans perpendiculaires (une trajectoire et un profil).",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Préparation des deux plans perpendiculaires (Dessus et Face)</div>"
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.3.1.png', 'Deux plans perpendiculaires')"><img src="assets/img_solidworks/3.3.1.png" alt="Deux plans perpendiculaires" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Préparation des deux plans perpendiculaires (Front Plane & Top Plane)</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
@@ -982,8 +982,8 @@ const COURSE_STEPS = [
         text: "Sur le Plan de dessus, trace une courbe sinueuse avec l'outil Spline, partant de l'origine. Quitte l'esquisse.",
         bullets: [
           "Sur le <strong>Plan de dessus</strong>, trace une courbe sinueuse avec l'outil <strong>Spline</strong>, partant de l'origine.",
-          "Quitte l'esquisse en cliquant sur l'icône de sortie en haut à droite.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Tracé de la courbe Spline sinueuse sur le Plan de dessus</div>"
+          "Quitte l'esquisse en cliquant sur l'icône de sortie en haut à droite (flèche bleue).",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.3.2.png', 'Trajectoire Spline')"><img src="assets/img_solidworks/3.3.2.png" alt="Trajectoire Spline" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Tracé de la courbe Spline sinueuse sur le Plan de dessus</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
@@ -992,17 +992,17 @@ const COURSE_STEPS = [
         bullets: [
           "Choisis le <strong>Plan de face</strong> (il est perpendiculaire au début de ta courbe). Ouvre une esquisse.",
           "Dessine un petit cercle centré sur le point de départ de ta spline. Quitte l'esquisse.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Cercle perpendiculaire centré sur le départ de la spline</div>"
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.3.3.png', 'Profil cercle perpendiculaire')"><img src="assets/img_solidworks/3.3.3.png" alt="Profil cercle perpendiculaire" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Cercle perpendiculaire centré sur le départ de la spline</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
-        title: "4. Balayage",
+        title: "4. Balayage volumique",
         text: "Va dans Fonctions > Bossage/Base balayé. Profil (case bleue) : Sélectionne le cercle. Trajectoire (case rose) : Sélectionne la courbe spline. Valide.",
         bullets: [
           "Va dans <strong>Fonctions</strong> > <strong>Bossage/Base balayé</strong>.",
-          "<strong>Profil (case bleue) :</strong> Sélectionne le cercle.",
-          "<strong>Trajectoire (case rose) :</strong> Sélectionne la courbe spline. Valide avec la coche verte.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Bossage balayé (profil cercle + trajectoire spline) et tube 3D obtenu</div>"
+          "<strong>Profil (case bleue) :</strong> Sélectionne le cercle (Sketch3).",
+          "<strong>Trajectoire (case rose) :</strong> Sélectionne la courbe spline (Sketch2). Valide avec la coche verte.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.3.4.png', 'Bossage balayé')"><img src="assets/img_solidworks/3.3.4.png" alt="Bossage balayé" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Configuration du Bossage balayé (profil + trajectoire)</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       }
     ],
@@ -1022,7 +1022,8 @@ const COURSE_STEPS = [
       title: "Passage de câble tubulaire balayé",
       caption: "Profil circulaire étiré le long d'une courbe Spline.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_tube_balayage.png",
+      imageFileName: "3.3.5.png",
+      imageSrc: "assets/img_solidworks/3.3.5.png",
       svgType: "sweep"
     }
   },
@@ -1041,6 +1042,7 @@ const COURSE_STEPS = [
     duration: "9 min",
     difficulty: "Intermédiaire",
     summary: "Ne dessiner que la moitié d'un objet et laisser SolidWorks faire le reste.",
+    imageSrc: "assets/img_solidworks/3.4.4.png",
     quickGoal: {
       concept: "Ne dessiner que la moitié d'un objet et laisser SolidWorks faire le reste.",
       actions: [
@@ -1057,16 +1059,16 @@ const COURSE_STEPS = [
         text: "Crée une nouvelle Pièce.",
         bullets: [
           "Presse <kbd class='shortcut-key'>Ctrl</kbd> + <kbd class='shortcut-key'>N</kbd> ➔ sélectionne <strong>Pièce</strong> ➔ clique sur <strong>OK</strong>.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Création d'une nouvelle pièce pour la pince</div>"
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.4.1.png', 'Nouveau fichier Pièce')"><img src="assets/img_solidworks/3.4.1.png" alt="Nouveau fichier Pièce" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Création d'une nouvelle pièce vierge</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
-        title: "2. La moitié",
+        title: "2. La moitié de la pince",
         text: "Sur le Plan de face, dessine et extrude uniquement le demi-corps de la pince avec un doigt de préhension d'un côté. Attention : assure-toi d'avoir une face bien plate pile au milieu de ta pièce qui servira de plan miroir !",
         bullets: [
           "Sur le <strong>Plan de face</strong>, dessine et extrude uniquement le demi-corps de la pince avec un doigt de préhension d'un côté.",
           "Attention : assure-toi d'avoir une face bien plate pile au milieu de ta pièce qui servira de plan miroir !",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Demi-corps de la pince avec doigt extrudé et face plane médiane</div>"
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.4.2.png', 'Demi-corps extrudé')"><img src="assets/img_solidworks/3.4.2.png" alt="Demi-corps extrudé" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Demi-corps avec doigt de serrage et face plane médiane</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`
         ]
       },
       {
@@ -1074,12 +1076,11 @@ const COURSE_STEPS = [
         text: "Dans l'onglet Fonctions, clique sur Symétrie.",
         bullets: [
           "Dans l'onglet <strong>Fonctions</strong>, clique sur <strong>Symétrie</strong>.",
-          "<strong>Plan de symétrie :</strong> Sélectionne la face plane centrale de ta demi-pince.",
-          "<strong>Corps à symétriser :</strong> Déplie le menu 'Corps à symétriser' et clique sur ta pièce.",
-          "Coche bien <strong>'Fusionner les corps'</strong> pour n'avoir qu'un seul objet solide à la fin. Valide.",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Sélection de la face centrale et des corps à symétriser avec 'Fusionner les corps'</div>",
-          "<div class=\"image-placeholder border-dashed border-2 border-gray-400 bg-gray-100 p-8 text-center my-4 rounded\">Illustration : Pince de préhension complète symétrisée en un seul solide</div>",
-          "<div class=\"my-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-orange-500/25 via-amber-500/20 to-orange-500/10 border-2 border-[#ff7d00] shadow-xl glow-7robot text-center\"><div class=\"inline-flex p-3.5 bg-[#ff7d00] text-white rounded-2xl shadow-lg mb-3\"><svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg></div><h3 class=\"text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight\">🎉 Module 3 validé avec succès !</h3><p class=\"text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed\">Bravo ! Tu as maîtrisé les 4 outils de modélisation avancés (Révolution, Répétition circulaire, Balayage et Symétrie). Tu as toutes les clés en main pour attaquer le grand projet du Module 4 : la conception complète du boîtier Feetech !</p></div>"
+          "<strong>Plan de symétrie :</strong> Sélectionne la face plane centrale de ta demi-pince (Face<1>).",
+          "<strong>Corps à symétriser :</strong> Déplie le menu 'Corps à symétriser' et clique sur ta pièce (Boss-Extrude1).",
+          "Coche bien <strong>'Fusionner les corps' (Merge solids)</strong> pour n'avoir qu'un seul objet solide à la fin. Valide.",
+          `<div class="cad-image-card my-4 group cursor-pointer" onclick="window.__showImageModal('assets/img_solidworks/3.4.3.png', 'Symétrie de corps')"><img src="assets/img_solidworks/3.4.3.png" alt="Symétrie de corps" class="w-full h-auto max-h-[460px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy" /><div class="px-4 py-2.5 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between text-xs"><div class="flex items-center space-x-2 text-slate-300 min-w-0"><span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span><span class="font-medium text-white truncate">Configuration de la symétrie : corps Boss-Extrude1 et fusion activée</span></div><span class="font-mono text-[10px] text-slate-400 shrink-0">🔍 Cliquer pour agrandir</span></div></div>`,
+          `<div class="my-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-orange-500/25 via-amber-500/20 to-orange-500/10 border-2 border-[#ff7d00] shadow-xl glow-7robot text-center"><div class="inline-flex p-3.5 bg-[#ff7d00] text-white rounded-2xl shadow-lg mb-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">🎉 Module 3 validé avec succès !</h3><p class="text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed">Bravo ! Tu as maîtrisé les 4 outils de modélisation avancés (Révolution, Répétition circulaire, Balayage et Symétrie). Tu as toutes les clés en main pour attaquer le grand projet du Module 4 : la conception complète du boîtier Feetech !</p></div>`
         ]
       }
     ],
@@ -1099,11 +1100,11 @@ const COURSE_STEPS = [
       title: "Pince de préhension complète symétrisée",
       caption: "Résultat final de la fonction Symétrie avec corps fusionnés.",
       recommendedDimensions: "1920 x 1080 px",
-      imageFileName: "mod3_pince_symetrique.png",
+      imageFileName: "3.4.4.png",
+      imageSrc: "assets/img_solidworks/3.4.4.png",
       svgType: "mirror"
     }
   },
-
   // MODULE 4 : PROJET RÉEL - LE BOÎTIER FEETECH
   // --------------------------------------------------------------------------
   // --------------------------------------------------------------------------

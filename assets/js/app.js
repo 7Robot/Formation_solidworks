@@ -640,7 +640,7 @@
                 <div class="space-y-3 mt-3">
                   ${inst.bullets.map(b => {
                     const trimmed = b.trim();
-                    if (trimmed.startsWith('<div class="image-placeholder') || trimmed.startsWith('<div class="my-6')) {
+                    if (trimmed.startsWith('<div class="image-placeholder') || trimmed.startsWith('<div class="my-6') || trimmed.startsWith('<div class="cad-image-card')) {
                       return `<div class="w-full">${b}</div>`;
                     }
                     return `
@@ -941,7 +941,7 @@
 
             <!-- Aperçu de l'image -->
             ${step.expectedResult && step.expectedResult.imageSrc ? `
-              <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 bg-slate-950/60 mb-4">
+              <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 bg-slate-950/60 mb-4 cursor-pointer group" onclick="window.__showImageModal('${step.expectedResult.imageSrc}', '${(step.expectedResult.title || 'Résultat attendu').replace(/'/g, "\\'")}')" title="Cliquer pour agrandir en plein écran">
                 <img 
                   src="${step.expectedResult.imageSrc}" 
                   alt="${step.expectedResult.title}" 
@@ -953,9 +953,12 @@
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
                     <span class="font-bold truncate text-white">${step.expectedResult.title}</span>
                   </div>
-                  <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#ff7d00]/20 text-[#ff7d00] border border-[#ff7d00]/40 shrink-0">
-                    ${step.expectedResult.badge}
-                  </span>
+                  <div class="flex items-center space-x-2 shrink-0">
+                    <span class="hidden sm:inline font-mono text-[10px] text-slate-400">🔍 Agrandir</span>
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#ff7d00]/20 text-[#ff7d00] border border-[#ff7d00]/40">
+                      ${step.expectedResult.badge}
+                    </span>
+                  </div>
                 </div>
               </div>
             ` : `
@@ -1076,7 +1079,7 @@
 
         <!-- Image réelle ou GIF animé actif -->
         ${activeImageSrc ? `
-          <div class="relative rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 bg-slate-950/40">
+          <div class="relative rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 bg-slate-950/40 cursor-pointer group" onclick="window.__showImageModal('${activeImageSrc}', '${(ph.title || 'Illustration').replace(/'/g, "\\'")}')" title="Cliquer pour agrandir en plein écran">
             <img 
               src="${activeImageSrc}" 
               alt="${ph.title}" 
@@ -1092,9 +1095,12 @@
                 <span class="hidden md:inline text-slate-400 font-mono text-[11px] truncate">&bull; ${ph.caption}</span>
               </div>
               
-              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#ff7d00]/15 text-[#ff7d00] border border-[#ff7d00]/30 shrink-0">
-                7Robot CAD
-              </span>
+              <div class="flex items-center space-x-2 shrink-0">
+                <span class="hidden sm:inline font-mono text-[10px] text-slate-400">🔍 Agrandir</span>
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#ff7d00]/15 text-[#ff7d00] border border-[#ff7d00]/30">
+                  7Robot CAD
+                </span>
+              </div>
             </div>
           </div>
         ` : `
@@ -1657,4 +1663,54 @@
     renderSidebar();
   };
 
+  // Visionneuse Lightbox plein écran pour les captures CAO
+  window.__showImageModal = function (src, title) {
+    const existing = document.getElementById('image-lightbox-modal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'image-lightbox-modal';
+    modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/90 backdrop-blur-md transition-all duration-300 opacity-0 cursor-zoom-out';
+    modal.innerHTML = `
+      <div class="relative max-w-5xl max-h-[92vh] flex flex-col items-center bg-slate-900 border border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl glow-7robot cursor-default" onclick="event.stopPropagation()">
+        <div class="w-full px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs sm:text-sm">
+          <div class="flex items-center space-x-2 text-slate-300 font-semibold truncate mr-4">
+            <span class="w-2 h-2 rounded-full bg-[#ff7d00] shrink-0"></span>
+            <span class="text-white truncate">${title || 'Capture SolidWorks'}</span>
+          </div>
+          <button type="button" onclick="document.getElementById('image-lightbox-modal').remove()" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors" title="Fermer (Échap)">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div class="p-2 sm:p-4 overflow-auto max-h-[82vh] flex items-center justify-center bg-slate-950/60">
+          <img src="${src}" alt="${title || 'Image SolidWorks'}" class="max-w-full max-h-[76vh] object-contain rounded-lg shadow-lg select-none" />
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    setTimeout(() => {
+      modal.classList.remove('opacity-0');
+      modal.classList.add('opacity-100');
+    }, 10);
+
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        const m = document.getElementById('image-lightbox-modal');
+        if (m) m.remove();
+        document.removeEventListener('keydown', handleEsc);
+      }
+    };
+    document.addEventListener('keydown', handleEsc);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.remove();
+        document.removeEventListener('keydown', handleEsc);
+      }
+    });
+  };
+
 })();
+
